@@ -719,99 +719,105 @@ export default function LandingPage() {
       </section>
 
       {/* Consulate Wait Times Grid Widget */}
-      <section id="tiempos-espera" className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter py-20 border-t border-slate-200/60">
-        {/* Title Section */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-          <div className="bg-blue-50 text-blue-600 border border-blue-100 text-[10px] font-bold px-3.5 py-1 rounded-full uppercase tracking-wider inline-block">
-            Planificación de Citas
+      <section id="tiempos-espera" className="relative w-full bg-[#081325] py-24 text-white overflow-hidden border-t border-slate-800/80">
+        
+        {/* Glow decoration inside dark section */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+          {/* Title Section */}
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+            <div className="bg-blue-500/10 text-blue-300 border border-blue-500/20 text-[10px] font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider inline-block">
+              Planificación de Citas
+            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+              Tiempos de espera oficiales actualizados (U.S. Embassy)
+            </h2>
+            <p className="text-slate-400 leading-relaxed text-sm md:text-base">
+              Considera estos tiempos para la cita presencial en el consulado y en el Centro de Atención a Solicitantes (CAS) en México.
+            </p>
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0b1c30] tracking-tight">
-            Tiempos de espera oficiales actualizados (U.S. Embassy)
-          </h2>
-          <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-            Considera estos tiempos para la cita presencial en el consulado y en el Centro de Atención a Solicitantes (CAS) en México.
-          </p>
-        </div>
 
-        {/* Grid of Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {[...waitTimes]
-            .filter((item) => ["cdmx", "gdl", "mty", "tij", "cdj", "mer", "her", "nld"].includes(item.id))
-            .sort((a, b) => {
-              const cityOrder = ["cdmx", "gdl", "mty", "tij", "cdj", "mer", "her", "nld"];
-              return cityOrder.indexOf(a.id) - cityOrder.indexOf(b.id);
-            })
-            .map((item) => {
-              const getDemandInfo = (days: number) => {
-                if (days >= 250) {
-                  return { text: "Demanda Alta", style: "bg-red-50 text-red-650 border border-red-100" };
-                } else if (days >= 130) {
-                  return { text: "Demanda Media", style: "bg-emerald-50 text-emerald-600 border border-emerald-100" };
-                } else {
-                  return { text: "Demanda Baja", style: "bg-emerald-50 text-emerald-600 border border-emerald-100" };
-                }
-              };
-
-              const getApprovalRate = (id: string) => {
-                const rates: Record<string, number> = {
-                  cdmx: 92,
-                  gdl: 91,
-                  mty: 94,
-                  tij: 89,
-                  cdj: 89,
-                  mer: 90,
-                  her: 93,
-                  nld: 88,
+          {/* Grid of Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {[...waitTimes]
+              .filter((item) => ["cdmx", "gdl", "mty", "tij", "cdj", "mer", "her", "nld"].includes(item.id))
+              .sort((a, b) => {
+                const cityOrder = ["cdmx", "gdl", "mty", "tij", "cdj", "mer", "her", "nld"];
+                return cityOrder.indexOf(a.id) - cityOrder.indexOf(b.id);
+              })
+              .map((item) => {
+                const getDemandInfo = (days: number) => {
+                  if (days >= 250) {
+                    return { text: "Demanda Alta", style: "bg-red-950/40 text-red-400 border border-red-900/30" };
+                  } else if (days >= 130) {
+                    return { text: "Demanda Media", style: "bg-emerald-950/40 text-emerald-400 border border-emerald-900/30" };
+                  } else {
+                    return { text: "Demanda Baja", style: "bg-emerald-950/40 text-emerald-400 border border-emerald-900/30" };
+                  }
                 };
-                return rates[id] || item.approvalRate || 90;
-              };
 
-              const demand = getDemandInfo(item.interviewWaitDays);
+                const getApprovalRate = (id: string) => {
+                  const rates: Record<string, number> = {
+                    cdmx: 92,
+                    gdl: 91,
+                    mty: 94,
+                    tij: 89,
+                    cdj: 89,
+                    mer: 90,
+                    her: 93,
+                    nld: 88,
+                  };
+                  return rates[id] || item.approvalRate || 90;
+                };
 
-              return (
-                <div
-                  key={item.id}
-                  className="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
-                >
-                  <div className="space-y-4">
-                    {/* Card Header */}
-                    <div className="flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-1.5 min-w-0">
-                        <span className="material-symbols-outlined text-[20px] text-blue-500 flex-shrink-0">location_on</span>
-                        <span className="text-sm font-extrabold text-[#0b1c30] truncate">{item.city}</span>
+                const demand = getDemandInfo(item.interviewWaitDays);
+
+                return (
+                  <div
+                    key={item.id}
+                    className="bg-white/[0.02] border border-white/[0.07] hover:border-blue-500/30 hover:bg-white/[0.05] rounded-2xl p-5 shadow-lg hover:shadow-blue-500/5 transition-all flex flex-col justify-between"
+                  >
+                    <div className="space-y-4">
+                      {/* Card Header */}
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-1.5 min-w-0">
+                          <span className="material-symbols-outlined text-[20px] text-blue-400 flex-shrink-0">location_on</span>
+                          <span className="text-sm font-extrabold text-white truncate">{item.city}</span>
+                        </div>
+                        <span className={`text-[9px] font-bold px-2 py-0.5 rounded-lg border flex-shrink-0 ${demand.style}`}>
+                          {demand.text}
+                        </span>
                       </div>
-                      <span className={`text-[9px] font-bold px-2 py-0.5 rounded-lg border flex-shrink-0 ${demand.style}`}>
-                        {demand.text}
-                      </span>
+
+                      {/* Card Wait Days */}
+                      <div className="space-y-2.5">
+                        <div className="flex justify-between items-center text-xs">
+                          <span className="text-slate-400">Trámite CAS:</span>
+                          <span className="font-extrabold text-white">
+                            {item.casWaitDays} {item.casWaitDays === 1 ? "Día hábil" : "Días hábiles"}
+                          </span>
+                        </div>
+                        <div className="flex justify-between items-center text-xs">
+                          <span className="text-slate-400">Entrevista Consular:</span>
+                          <span className="font-extrabold text-white">
+                            {item.interviewWaitDays} Días
+                          </span>
+                        </div>
+                      </div>
                     </div>
 
-                    {/* Card Wait Days */}
-                    <div className="space-y-2.5">
+                    {/* Card Approval Rate */}
+                    <div className="mt-4 pt-4 border-t border-white/[0.06]">
                       <div className="flex justify-between items-center text-xs">
-                        <span className="text-slate-400">Trámite CAS:</span>
-                        <span className="font-extrabold text-[#0b1c30]">
-                          {item.casWaitDays} {item.casWaitDays === 1 ? "Día hábil" : "Días hábiles"}
-                        </span>
-                      </div>
-                      <div className="flex justify-between items-center text-xs">
-                        <span className="text-slate-400">Entrevista Consular:</span>
-                        <span className="font-extrabold text-[#0b1c30]">
-                          {item.interviewWaitDays} Días
-                        </span>
+                        <span className="text-slate-400">Tasa Aprobación Promedio:</span>
+                        <span className="font-bold text-emerald-400">{getApprovalRate(item.id)}%</span>
                       </div>
                     </div>
                   </div>
-
-                  {/* Card Approval Rate */}
-                  <div className="mt-4 pt-4 border-t border-slate-100">
-                    <div className="flex justify-between items-center text-xs">
-                      <span className="text-slate-400">Tasa Aprobación Promedio:</span>
-                      <span className="font-bold text-emerald-600">{getApprovalRate(item.id)}%</span>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
+          </div>
         </div>
       </section>
 
