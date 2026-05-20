@@ -726,13 +726,20 @@ export default function LandingPage() {
                 &ldquo;Estaba aterrorizada por la entrevista. Usar el simulador de IA de Go-Visa me ayudó a practicar mis respuestas de ingresos y lazos fuertes con México. Llegué segura y me la otorgaron sin problemas.&rdquo;
               </p>
             </div>
-            <div className="flex items-center justify-between mt-8 pt-6 border-t border-slate-100">
-              <div>
-                <h4 className="font-bold text-[#0b1c30] text-sm md:text-base">Sofía Martínez</h4>
-                <p className="text-xs text-slate-400">Jalisco (Cita en Guadalajara)</p>
+            <div className="flex items-center justify-between mt-8 pt-6 border-t border-slate-100 gap-2">
+              <div className="flex items-center gap-3">
+                <img
+                  src="/sofia.png"
+                  alt="Sofía Martínez"
+                  className="w-10 h-10 rounded-full object-cover border border-slate-100 shadow-sm"
+                />
+                <div>
+                  <h4 className="font-bold text-[#0b1c30] text-sm md:text-base leading-tight">Sofía Martínez</h4>
+                  <p className="text-[11px] text-slate-400">Jalisco (Cita en Guadalajara)</p>
+                </div>
               </div>
               <span className="bg-[#e6f7ed] text-[#0d7a3c] text-[10px] md:text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
-                Visa Aprobada - Mayo 2026
+                Aprobada
               </span>
             </div>
           </div>
@@ -747,13 +754,20 @@ export default function LandingPage() {
                 &ldquo;La DS-160 en el sitio oficial es una pesadilla de caídas y mala traducción. El cuestionario simplificado de Go-Visa me guió paso a paso y me guardaron todo ordenado. Excelente servicio.&rdquo;
               </p>
             </div>
-            <div className="flex items-center justify-between mt-8 pt-6 border-t border-slate-100">
-              <div>
-                <h4 className="font-bold text-[#0b1c30] text-sm md:text-base">Alejandro Ruiz</h4>
-                <p className="text-xs text-slate-400">Nuevo León (Cita en Monterrey)</p>
+            <div className="flex items-center justify-between mt-8 pt-6 border-t border-slate-100 gap-2">
+              <div className="flex items-center gap-3">
+                <img
+                  src="/alejandro.png"
+                  alt="Alejandro Ruiz"
+                  className="w-10 h-10 rounded-full object-cover border border-slate-100 shadow-sm"
+                />
+                <div>
+                  <h4 className="font-bold text-[#0b1c30] text-sm md:text-base leading-tight">Alejandro Ruiz</h4>
+                  <p className="text-[11px] text-slate-400">Nuevo León (Cita Monterrey)</p>
+                </div>
               </div>
               <span className="bg-[#e6f7ed] text-[#0d7a3c] text-[10px] md:text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
-                Visa Aprobada - Abril 2026
+                Aprobada
               </span>
             </div>
           </div>
@@ -768,13 +782,20 @@ export default function LandingPage() {
                 &ldquo;Mi visa venció hace un año, no sabía si requería entrevista presencial de nuevo. El test de elegibilidad me confirmó que era elegible para exención. Ahorré muchísimo estrés.&rdquo;
               </p>
             </div>
-            <div className="flex items-center justify-between mt-8 pt-6 border-t border-slate-100">
-              <div>
-                <h4 className="font-bold text-[#0b1c30] text-sm md:text-base">Gabriela Torres</h4>
-                <p className="text-xs text-slate-400">CDMX (Cita en CDMX)</p>
+            <div className="flex items-center justify-between mt-8 pt-6 border-t border-slate-100 gap-2">
+              <div className="flex items-center gap-3">
+                <img
+                  src="/gabriela.png"
+                  alt="Gabriela Torres"
+                  className="w-10 h-10 rounded-full object-cover border border-slate-100 shadow-sm"
+                />
+                <div>
+                  <h4 className="font-bold text-[#0b1c30] text-sm md:text-base leading-tight">Gabriela Torres</h4>
+                  <p className="text-[11px] text-slate-400">CDMX (Cita en CDMX)</p>
+                </div>
               </div>
               <span className="bg-[#e6f7ed] text-[#0d7a3c] text-[10px] md:text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
-                Visa Renovada - Hace 2 semanas
+                Renovada
               </span>
             </div>
           </div>
