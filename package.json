@@ -9,7 +9,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@tailwindcss/oxide-darwin-x64": "^4.3.0",
     "firebase": "^12.13.0",
     "lightningcss": "^1.32.0",
     "lightningcss-darwin-x64": "^1.32.0",
