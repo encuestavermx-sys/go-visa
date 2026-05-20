@@ -160,149 +160,442 @@ export default function LandingPage() {
 
   return (
     <div className="bg-[#f8f9ff] bg-grid-pattern text-[#0b1c30] min-h-screen selection:bg-primary/20 selection:text-primary flex flex-col overflow-x-hidden relative">
-      {/* Background Glows */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
-      <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
+      
+      {/* Upper Dark Container for Navbar, Hero and Trust Banner */}
+      <div className="bg-[#030712] text-white relative overflow-hidden bg-grid-dark border-b border-white/5">
+        {/* Dark Background Glows */}
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-primary/10 rounded-full blur-[150px] pointer-events-none z-0"></div>
 
-      {/* Navbar */}
-      <header className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter h-20 flex items-center justify-between border-b border-slate-200/60">
-        <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
-            <img src="/logo.png" alt="Go-Visa Logo" className="h-9 w-auto object-contain" />
-          </Link>
-          <span className="bg-blue-50 border border-blue-100 text-primary text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wider">
-            B1/B2
-          </span>
-        </div>
-
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-          <a href="#como-funciona" className="hover:text-primary transition-colors">¿Cómo funciona?</a>
-          <a href="#calculadora-factibilidad" className="hover:text-primary transition-colors">Evaluador Inteligente</a>
-          <a href="#tiempos-espera" className="hover:text-primary transition-colors">Tiempos de Espera</a>
-          <a href="#testimonios" className="hover:text-primary transition-colors">Testimonios</a>
-        </nav>
-
-        <div className="flex items-center gap-4">
-          {currentUser ? (
-            <Link
-              href={currentUser.role === "admin" ? "/admin" : "/dashboard"}
-              className="bg-primary hover:bg-primary/95 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all flex items-center gap-1.5 active:scale-[0.98] shadow-lg shadow-primary/10"
-            >
-              Iniciar Trámite
-              <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+        {/* Navbar */}
+        <header className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter h-20 flex items-center justify-between border-b border-white/5">
+          <div className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
+              <img src="/logo.png" alt="Go-Visa Logo" className="h-9 w-auto object-contain brightness-0 invert" />
             </Link>
-          ) : (
-            <>
-              <Link href="/login" className="text-sm font-semibold hover:text-primary transition-all px-3 py-2 text-slate-600">
-                Iniciar sesión
-              </Link>
+            <span className="bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wider">
+              B1/B2
+            </span>
+          </div>
+
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+            <a href="#como-funciona" className="hover:text-white transition-colors">¿Cómo funciona?</a>
+            <a href="#calculadora-factibilidad" className="hover:text-white transition-colors">Evaluador Inteligente</a>
+            <a href="#tiempos-espera" className="hover:text-white transition-colors">Tiempos de Espera</a>
+            <a href="#testimonios" className="hover:text-white transition-colors">Testimonios</a>
+          </nav>
+
+          <div className="flex items-center gap-4">
+            {currentUser ? (
               <Link
-                href="/register"
-                className="bg-primary hover:bg-primary/95 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all flex items-center gap-1.5 active:scale-[0.98] shadow-lg shadow-primary/10"
+                href={currentUser.role === "admin" ? "/admin" : "/dashboard"}
+                className="bg-blue-600 hover:bg-blue-550 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all flex items-center gap-1.5 active:scale-[0.98] shadow-lg shadow-blue-600/10"
               >
                 Iniciar Trámite
                 <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
               </Link>
-            </>
-          )}
+            ) : (
+              <>
+                <Link href="/login" className="text-sm font-semibold hover:text-white transition-all px-3 py-2 text-slate-300">
+                  Iniciar sesión
+                </Link>
+                <Link
+                  href="/register"
+                  className="bg-blue-600 hover:bg-blue-550 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all flex items-center gap-1.5 active:scale-[0.98] shadow-lg shadow-blue-600/10"
+                >
+                  Iniciar Trámite
+                  <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                </Link>
+              </>
+            )}
+          </div>
+        </header>
+
+        {/* Hero Section */}
+        <section className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter pt-12 md:pt-24 pb-16 md:pb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            
+            {/* Columna Izquierda: Información */}
+            <div className="lg:col-span-6 space-y-8 flex flex-col items-start text-left">
+              <h1 className="text-4xl md:text-[52px] font-black tracking-tight leading-[1.1] text-white">
+                Tu visa americana,<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">
+                  sin complicaciones.
+                </span>
+              </h1>
+
+              <p className="text-base md:text-lg text-slate-350 max-w-[540px] leading-relaxed">
+                Te guiamos paso a paso y nos encargamos del proceso para que tú solo te preocupes por tu viaje.
+              </p>
+
+              {/* Checklist de beneficios */}
+              <div className="space-y-3.5 w-full">
+                {[
+                  "Asistencia personalizada",
+                  "Menos errores, más seguridad",
+                  "Seguimiento por WhatsApp",
+                  "Ahorra tiempo y evita estrés"
+                ].map((benefit, idx) => (
+                  <div key={idx} className="flex items-center gap-3">
+                    <div className="flex-shrink-0 flex items-center justify-center w-5 h-5 rounded-full bg-blue-500/10 border border-blue-500/30">
+                      <span className="material-symbols-outlined text-[14px] text-blue-400 font-extrabold">check</span>
+                    </div>
+                    <span className="text-sm md:text-base text-slate-200 font-medium">{benefit}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Botón y Prueba Social */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 w-full pt-4">
+                <Link
+                  href={currentUser ? (currentUser.role === "admin" ? "/admin" : "/dashboard") : "/register"}
+                  className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl text-base font-semibold hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-blue-500/20 text-center"
+                >
+                  Comenzar mi trámite
+                </Link>
+
+                <div className="flex items-center gap-3">
+                  {/* Overlapping Avatars */}
+                  <div className="flex -space-x-3">
+                    <img src="/sofia.png" alt="Sofía" className="w-9 h-9 rounded-full object-cover border-2 border-[#030712] shadow-md" />
+                    <img src="/alejandro.png" alt="Alejandro" className="w-9 h-9 rounded-full object-cover border-2 border-[#030712] shadow-md" />
+                    <img src="/gabriela.png" alt="Gabriela" className="w-9 h-9 rounded-full object-cover border-2 border-[#030712] shadow-md" />
+                  </div>
+                  <div className="text-xs md:text-sm">
+                    <div className="text-white font-bold tracking-wide">+2,500 personas</div>
+                    <div className="text-slate-400">ya viajaron con Go-Visa</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Columna Derecha: Ilustración Interactiva */}
+            <div className="lg:col-span-6 relative flex justify-center items-center h-[420px] md:h-[500px] mt-10 lg:mt-0">
+              
+              {/* Contenedor relativo de la composición */}
+              <div className="relative w-full max-w-[450px] h-full flex justify-center items-center">
+                
+                {/* 1. Avión volando con trayecto */}
+                <div className="absolute top-2 left-6 w-[280px] h-[160px] pointer-events-none z-10">
+                  {/* Trayectoria del avión */}
+                  <svg className="w-full h-full" viewBox="0 0 280 160" fill="none">
+                    <path
+                      d="M20,140 Q100,60 260,20"
+                      stroke="rgba(255, 255, 255, 0.2)"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeDasharray="6 6"
+                      className="animate-dash"
+                    />
+                  </svg>
+                  {/* Avión flotante al final del trayecto */}
+                  <div className="absolute top-[8px] right-[4px] animate-float-plane">
+                    <svg className="w-8 h-8 text-white filter drop-shadow-md" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L14 20.5V13.5L21 16z" />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* 2. Pasaporte detrás del teléfono */}
+                <div className="absolute left-4 top-24 w-[160px] md:w-[190px] h-[220px] md:h-[260px] animate-float-passport z-0">
+                  <div className="w-full h-full bg-[#0a1835] rounded-xl border border-blue-900/40 p-4 shadow-2xl flex flex-col justify-between text-left select-none relative overflow-hidden">
+                    {/* Glow inside passport */}
+                    <div className="absolute -top-12 -left-12 w-28 h-28 bg-yellow-500/5 rounded-full blur-xl"></div>
+                    
+                    {/* Passport content */}
+                    <div className="space-y-1.5">
+                      <div className="text-[10px] md:text-xs font-serif tracking-[0.2em] text-[#d4af37] font-semibold opacity-90 uppercase">PASSPORT</div>
+                      <div className="w-8 h-[1px] bg-[#d4af37]/40"></div>
+                    </div>
+                    
+                    {/* Passport Emblem (US Style) */}
+                    <div className="my-auto flex justify-center py-2 text-[#d4af37]/75 text-center">
+                      <svg className="w-14 h-14 md:w-16 md:h-16 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+                        <circle cx="12" cy="12" r="10" />
+                        <circle cx="12" cy="12" r="7" strokeDasharray="2 2" />
+                        <path d="M12 2v20M2 12h20M12 12L5 5m14 14l-7-7" />
+                      </svg>
+                    </div>
+
+                    <div className="space-y-1">
+                      <div className="text-[8px] md:text-[9px] font-serif tracking-widest text-[#d4af37]/90 font-medium uppercase">United States</div>
+                      <div className="text-[8px] md:text-[9px] font-serif tracking-widest text-[#d4af37]/90 font-medium uppercase">of America</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3. Mockup de teléfono con Chat de WhatsApp */}
+                <div className="absolute right-4 md:right-8 top-12 w-[220px] md:w-[245px] bg-[#070a13] rounded-[36px] p-2.5 border-4 border-slate-800 shadow-2xl z-20 animate-float-phone">
+                  {/* Phone screen inner */}
+                  <div className="w-full bg-[#f0f2f5] rounded-[28px] overflow-hidden flex flex-col aspect-[9/18.5] text-left text-slate-800 relative">
+                    
+                    {/* Notch / Dynamic Island */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-4.5 bg-black rounded-b-xl z-35 flex items-center justify-center">
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-900 absolute left-4"></span>
+                    </div>
+
+                    {/* Chat Header */}
+                    <div className="bg-[#0b1c30] pt-6 pb-2.5 px-3 flex items-center gap-2 border-b border-slate-200 shadow-sm relative z-25">
+                      <span className="material-symbols-outlined text-[16px] text-white cursor-pointer">arrow_back</span>
+                      
+                      {/* Avatar / App Logo */}
+                      <div className="w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center">
+                        <svg className="w-4.5 h-4.5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                        </svg>
+                      </div>
+
+                      <div className="min-w-0">
+                        <div className="text-[11px] font-bold text-white leading-tight">Go-Visa</div>
+                        <div className="flex items-center gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                          <span className="text-[8px] text-slate-350">En línea</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Chat Area */}
+                    <div className="flex-1 p-2.5 space-y-2 overflow-y-auto bg-[#efeae2] text-[9.5px] leading-relaxed relative">
+                      {/* Message 1: Received */}
+                      <div className="max-w-[85%] bg-white rounded-lg p-2 shadow-sm rounded-tl-none space-y-0.5">
+                        <p className="text-slate-800">
+                          ¡Hola Carlos! 👋 Te damos la bienvenida a Go-Visa.
+                        </p>
+                        <span className="text-[7.5px] text-slate-400 block text-right">11:45 AM</span>
+                      </div>
+
+                      {/* Message 2: Received */}
+                      <div className="max-w-[85%] bg-white rounded-lg p-2 shadow-sm rounded-tl-none space-y-0.5">
+                        <p className="text-slate-800">
+                          Estamos aquí para ayudarte a obtener tu visa americana de forma simple y rápida.
+                        </p>
+                        <span className="text-[7.5px] text-slate-400 block text-right">11:45 AM</span>
+                      </div>
+
+                      {/* Message 3: Sent */}
+                      <div className="max-w-[85%] bg-[#d9fdd3] rounded-lg p-2 shadow-sm rounded-tr-none space-y-0.5 ml-auto">
+                        <p className="text-slate-850 font-medium">
+                          ¡Perfecto! ¿Cómo comenzamos?
+                        </p>
+                        <div className="flex items-center justify-end gap-0.5">
+                          <span className="text-[7.5px] text-slate-500">11:46 AM</span>
+                          <span className="material-symbols-outlined text-[10px] text-blue-500 font-black">done_all</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 4. Tarjeta Flotante de Datos Protegidos */}
+                <div className="absolute bottom-6 right-[-24px] md:right-[-32px] w-[180px] bg-white border border-slate-100 rounded-xl p-3 shadow-xl flex items-start gap-2.5 z-25 transform hover:scale-[1.03] transition-transform duration-350 select-none">
+                  <div className="bg-blue-50 rounded-lg p-1.5 flex items-center justify-center flex-shrink-0">
+                    <span className="material-symbols-outlined text-[18px] text-blue-600">lock</span>
+                  </div>
+                  <div className="text-[9.5px] leading-snug text-left text-slate-800">
+                    <div className="font-extrabold">Tus datos están 100% protegidos</div>
+                    <div className="text-slate-450 mt-0.5">Privacidad y seguridad garantizadas.</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* Confidence Bottom Banner */}
+        <div className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter pb-12 md:pb-16 pt-4">
+          <div className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 md:p-8 backdrop-blur-md">
+            <h3 className="text-xs md:text-sm font-semibold tracking-wider text-slate-400 text-center uppercase mb-6">
+              Con la confianza de miles de clientes
+            </h3>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 items-center">
+              {[
+                { title: "Proceso seguro y confiable", icon: "verified_user" },
+                { title: "Información protegida", icon: "lock" },
+                { title: "Asesoría especializada", icon: "support_agent" },
+                { title: "Respaldo en cada paso", icon: "how_to_reg" }
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-center gap-3 justify-center md:justify-start px-2">
+                  <div className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20">
+                    <span className="material-symbols-outlined text-[18px] text-blue-400">{item.icon}</span>
+                  </div>
+                  <span className="text-xs md:text-sm text-slate-200 font-bold text-left leading-snug">{item.title}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </header>
 
-      {/* Hero Section */}
-      <section className="relative z-10 w-full max-w-[1000px] mx-auto px-margin-mobile md:px-gutter pt-16 md:pt-28 pb-16 text-center flex flex-col items-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-xs font-semibold text-primary mb-8 shadow-sm">
-          <span className="material-symbols-outlined text-[16px] text-primary">verified_user</span>
-          <span>98.6% de Aprobación en Visas Asesoradas</span>
-        </div>
-
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.1] text-[#0b1c30] max-w-[850px] mb-6">
-          Tramita tu visa americana de forma{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">
-            fácil, guiada y sin estrés.
-          </span>
-        </h1>
-
-        <p className="text-base md:text-xl text-slate-600 max-w-[700px] mb-10 leading-relaxed">
-          El acompañamiento experto y digital que necesitas. Evaluamos tu perfil consular, llenamos tu DS-160 sin errores y gestionamos tu cita más rápida en México.
-        </p>
-
-        <div className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
-          <Link
-            href={currentUser ? (currentUser.role === "admin" ? "/admin" : "/dashboard") : "/register"}
-            className="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-xl text-base font-semibold hover:bg-primary/90 hover:scale-[1.03] active:scale-[0.98] transition-all shadow-lg shadow-primary/20 text-center"
-          >
-            {currentUser ? "Iniciar Trámite" : "Iniciar mi Solicitud"}
-          </Link>
-          <a
-            href="#calculadora-factibilidad"
-            className="w-full sm:w-auto bg-white text-slate-800 border border-slate-200 px-8 py-4 rounded-xl text-base font-semibold hover:bg-slate-50 hover:border-slate-300 active:scale-[0.98] transition-all flex items-center justify-center gap-2 text-center shadow-sm"
-          >
-            <span className="material-symbols-outlined text-[20px] text-primary">analytics</span>
-            Medir Factibilidad
-          </a>
-        </div>
-
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-sm text-slate-500">
-          <span className="flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-[18px] text-primary">check_circle</span>
-            Formulario DS-160 Simplificado
-          </span>
-          <span className="flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-[18px] text-primary">check_circle</span>
-            Revisión Humana Incluida
-          </span>
-          <span className="flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-[18px] text-primary">check_circle</span>
-            Monitoreo Activo de Citas
-          </span>
-        </div>
-      </section>
+      </div>
 
       {/* Steps Onboarding ("Cómo funciona") */}
       <section id="como-funciona" className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter py-20 border-t border-slate-200/60">
+        
+        {/* Parte 1: Stepper Horizontal */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0b1c30]">El camino más simple hacia tu visa</h2>
-          <p className="text-slate-600 max-w-[600px] mx-auto">Olvídate de formularios complejos en inglés e instructivos confusos. Nosotros nos encargamos de todo el proceso en 4 sencillos pasos.</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-3 text-[#0b1c30]">¿Cómo funciona?</h2>
+          <p className="text-slate-500 font-medium text-base">Un proceso simple en 4 pasos</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {[
-            {
-              step: "01",
-              title: "Registro y Cuestionario",
-              desc: "Completa nuestro sencillo cuestionario digital en español. Te llevará solo 15 minutos en lugar de horas en el portal oficial.",
-              icon: "edit_note"
-            },
-            {
-              step: "02",
-              title: "Revisión Humana",
-              desc: "Un asesor experto analiza tu perfil minuciosamente, corrigiendo cualquier detalle que pueda despertar dudas en el cónsul.",
-              icon: "person_search"
-            },
-            {
-              step: "03",
-              title: "Pago y Citas",
-              desc: "Te entregamos los formatos oficiales de pago y reservamos tus citas en el CAS y el Consulado optimizando fechas.",
-              icon: "calendar_month"
-            },
-            {
-              step: "04",
-              title: "Asesoría Final",
-              desc: "Te preparamos con un temario personalizado y simulacro de preguntas comunes según tu perfil de viabilidad.",
-              icon: "co-present"
-            }
-          ].map((item, index) => (
-            <div key={index} className="bg-white border border-slate-200/60 rounded-2xl p-6 hover:shadow-md hover:border-slate-300 transition-all flex flex-col group shadow-sm">
-              <div className="flex items-center justify-between mb-6">
-                <span className="text-4xl font-black text-slate-200 group-hover:text-primary transition-colors">{item.step}</span>
-                <span className="material-symbols-outlined text-primary bg-blue-50 p-2.5 rounded-xl text-[24px]">
-                  {item.icon}
-                </span>
+        {/* Stepper container */}
+        <div className="relative mb-28">
+          {/* Connector Line (Desktop) */}
+          <div className="hidden md:block absolute top-[43px] left-[12%] right-[12%] h-[2px] border-t-2 border-dashed border-blue-100/80 -z-10"></div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 lg:gap-12">
+            {[
+              {
+                step: 1,
+                title: "Responde",
+                desc: "Completa nuestro cuestionario en línea.",
+                icon: (
+                  <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 7.5h6" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 16.5h6" />
+                  </svg>
+                )
+              },
+              {
+                step: 2,
+                title: "Revisamos",
+                desc: "Nuestro equipo revisa tu información.",
+                icon: (
+                  <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                )
+              },
+              {
+                step: 3,
+                title: "Agendamos tu cita",
+                desc: "Nos encargamos de todo y conseguimos tu cita.",
+                icon: (
+                  <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                )
+              },
+              {
+                step: 4,
+                title: "Te notificamos",
+                desc: "Te avisamos por WhatsApp con todos los detalles.",
+                icon: (
+                  <svg className="w-7 h-7 text-emerald-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12.031 2c-5.514 0-9.99 4.476-9.99 9.99 0 1.763.459 3.486 1.332 5.006L2 22l5.166-1.354c1.47.8 3.119 1.22 4.865 1.22h.004c5.514 0 9.99-4.476 9.99-9.99 0-2.673-1.04-5.186-2.93-7.078C17.202 2.94 14.7 2 12.03 2zm6.059 13.99c-.266.751-1.35 1.365-1.849 1.455-.499.09-1.01.162-3.197-.696-2.793-1.096-4.577-3.95-4.718-4.135-.14-.186-1.144-1.524-1.144-2.91 0-1.385.728-2.066 1.014-2.353.287-.287.624-.359.832-.359.208 0 .416.002.597.01.187.008.437-.033.686.568.257.618.882 2.148.959 2.302.077.155.129.336.026.542-.104.207-.156.336-.312.518-.156.181-.326.402-.467.54-.156.155-.319.324-.136.638.182.314.81 1.332 1.737 2.158.927.826 1.705 1.082 2.02 1.238.314.156.499.129.686-.088.187-.217.81-.942 1.026-1.267.217-.326.434-.272.733-.162.299.11 1.902.894 2.228 1.057.325.162.542.245.625.385.083.14.083.812-.183 1.563z"/>
+                  </svg>
+                )
+              }
+            ].map((item, index) => (
+              <div key={index} className="flex flex-col items-center text-center group px-4">
+                {/* Icon wrapper with circular badge */}
+                <div className="relative mb-5">
+                  {/* Blue Numbered Badge */}
+                  <div className="absolute -top-1.5 -left-1.5 w-6 h-6 rounded-full bg-blue-600 border-2 border-white flex items-center justify-center text-[11px] font-bold text-white shadow-sm z-10">
+                    {item.step}
+                  </div>
+                  
+                  {/* Icon Circle */}
+                  <div className="w-[86px] h-[86px] rounded-full bg-white border border-slate-200/50 flex items-center justify-center shadow-sm group-hover:shadow-md group-hover:border-slate-300 transition-all duration-300 relative">
+                    <div className="absolute inset-1.5 rounded-full bg-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="relative z-10 flex items-center justify-center">
+                      {item.icon}
+                    </div>
+                  </div>
+                </div>
+                
+                <h3 className="text-base font-bold text-[#0b1c30] mb-2">{item.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed max-w-[220px]">{item.desc}</p>
               </div>
-              <h3 className="text-lg font-bold mb-2 text-[#0b1c30]">{item.title}</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+
+        {/* Parte 2: Propuesta de valor y Beneficios ("¿Por qué Go-Visa?") */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-20 border-t border-slate-200/40">
+          {/* Columna Izquierda */}
+          <div className="lg:col-span-5 flex flex-col justify-center space-y-6">
+            <span className="bg-blue-50 text-blue-600 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider border border-blue-100 w-fit">
+              ¿Por qué Go-Visa?
+            </span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-[#0b1c30] leading-tight tracking-tight">
+              Hacemos el proceso fácil, rápido y seguro.
+            </h2>
+            <p className="text-slate-600 text-base leading-relaxed">
+              Combinamos tecnología y asesoría experta para brindarte la mejor experiencia.
+            </p>
+            <a
+              href="#beneficios"
+              className="bg-[#0b1c30] text-white hover:bg-opacity-90 px-6 py-3 rounded-full text-sm font-semibold w-fit transition-all duration-200 shadow-sm inline-flex items-center gap-2 group/btn"
+            >
+              Conoce nuestros servicios
+              <svg className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+
+          {/* Columna Derecha */}
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {[
+              {
+                title: "Rápido",
+                desc: "Optimizamos cada paso para ahorrar tu tiempo.",
+                icon: (
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                )
+              },
+              {
+                title: "Seguro",
+                desc: "Protegemos tu información y tu proceso.",
+                icon: (
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                )
+              },
+              {
+                title: "Acompañamiento",
+                desc: "Te asesoramos en todo momento por expertos.",
+                icon: (
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 12c0-4.97 4.03-9 9-9s9 4.03 9 9m-18 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H3a2 2 0 00-2 2v2a2 2 0 002 2zm14 0h2a2 2 0 002-2v-2a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 16v1a3 3 0 01-3 3h-2" />
+                  </svg>
+                )
+              },
+              {
+                title: "Transparente",
+                desc: "Sin sorpresas, sabes siempre en qué etapa vas.",
+                icon: (
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M7 16V13m4 3V10m4 6V7m4 9v-5" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12l4-4 4 3 6-5" />
+                  </svg>
+                )
+              }
+            ].map((item, index) => (
+              <div key={index} className="bg-white border border-slate-200/50 hover:border-slate-300 rounded-2xl p-6 hover:shadow-md transition-all duration-300 flex flex-col justify-between shadow-sm relative overflow-hidden group">
+                <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-blue-50/20 rounded-full blur-xl group-hover:bg-blue-50/40 transition-colors duration-300"></div>
+                
+                <div className="relative z-10 flex flex-col h-full justify-between">
+                  <div className="bg-blue-50/60 p-3 rounded-xl w-fit mb-5">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-base font-bold mb-2 text-[#0b1c30]">{item.title}</h3>
+                    <p className="text-slate-500 text-xs leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

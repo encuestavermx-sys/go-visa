@@ -137,3 +137,61 @@ body {
     linear-gradient(to right, rgba(0, 62, 199, 0.015) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0, 62, 199, 0.015) 1px, transparent 1px);
 }
+
+.bg-grid-dark {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+}
+
+@keyframes float-phone {
+  0%, 100% {
+    transform: translateY(0) rotate(1deg) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-1deg) scale(1.01);
+  }
+}
+
+@keyframes float-passport {
+  0%, 100% {
+    transform: translateY(0) rotate(-12deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-8deg);
+  }
+}
+
+@keyframes float-plane {
+  0%, 100% {
+    transform: translate(0, 0) rotate(10deg);
+  }
+  50% {
+    transform: translate(-5px, -8px) rotate(12deg);
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.animate-float-phone {
+  animation: float-phone 6s ease-in-out infinite;
+}
+
+.animate-float-passport {
+  animation: float-passport 8s ease-in-out infinite;
+}
+
+.animate-float-plane {
+  animation: float-plane 5s ease-in-out infinite;
+}
+
+.animate-dash {
+  stroke-dasharray: 8;
+  animation: dash 3s linear infinite;
+}
+
