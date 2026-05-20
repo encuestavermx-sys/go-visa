@@ -189,11 +189,9 @@ export const authService = {
     }
   },
 
-  register: async (email: string, displayName: string, role = "user", score?: number) => {
+  register: async (email: string, password: string, displayName: string, role = "user", score?: number) => {
     if (isFirebaseConfigured) {
-      // We create with standard password for flow or let firebase auth handle it.
-      // For this app we assume standard registration:
-      const credential = await createUserWithEmailAndPassword(auth, email, "temporal123!");
+      const credential = await createUserWithEmailAndPassword(auth, email, password);
       const userData = { uid: credential.user.uid, email, displayName, role, createdAt: new Date().toISOString() };
       await setDoc(doc(db, "users", credential.user.uid), userData);
       

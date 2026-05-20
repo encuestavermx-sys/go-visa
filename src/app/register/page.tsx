@@ -36,7 +36,7 @@ export default function RegisterPage() {
         if (scoreParam) initialScore = parseInt(scoreParam);
       }
 
-      const user = await authService.register(email, name, "user", initialScore);
+      const user = await authService.register(email, password, name, "user", initialScore);
       // Save session locally in mock mode
       if (typeof window !== "undefined") {
         localStorage.setItem("go-visa_session", JSON.stringify(user));
