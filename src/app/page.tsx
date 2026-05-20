@@ -500,17 +500,9 @@ export default function LandingPage() {
                 title: "Responde",
                 desc: "Completa nuestro cuestionario en línea.",
                 icon: (
-                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <linearGradient id="grad-stepper-1" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#3b82f6" />
-                        <stop offset="100%" stopColor="#1d4ed8" />
-                      </linearGradient>
-                    </defs>
-                    <rect x="3" y="3" width="18" height="18" rx="4" className="stroke-blue-600" strokeWidth="2" fill="#eff6ff" />
-                    <path d="M7 8h10M7 12h6" stroke="url(#grad-stepper-1)" strokeWidth="2" strokeLinecap="round" />
-                    <circle cx="16" cy="14" r="4.5" fill="#3b82f6" />
-                    <path d="M14 14.2l1.2 1.2 2.8-2.8" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    <path d="M9 14l2 2 4-4" />
                   </svg>
                 )
               },
@@ -519,17 +511,11 @@ export default function LandingPage() {
                 title: "Revisamos",
                 desc: "Nuestro equipo revisa tu información.",
                 icon: (
-                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <linearGradient id="grad-stepper-2" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#2563eb" />
-                        <stop offset="100%" stopColor="#1d4ed8" />
-                      </linearGradient>
-                    </defs>
-                    <path d="M19 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V9l-5-5H7" stroke="url(#grad-stepper-2)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="#eff6ff" />
-                    <path d="M14 3v5h5" stroke="url(#grad-stepper-2)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    <circle cx="10" cy="13" r="3" stroke="#3b82f6" strokeWidth="2" fill="white" />
-                    <path d="M12.5 15.5l3 3" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" />
+                  <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <circle cx="10" cy="13" r="3" />
+                    <line x1="12" y1="15" x2="16" y2="19" />
                   </svg>
                 )
               },
@@ -538,16 +524,12 @@ export default function LandingPage() {
                 title: "Agendamos tu cita",
                 desc: "Nos encargamos de todo y conseguimos tu cita.",
                 icon: (
-                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <linearGradient id="grad-stepper-3" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#3b82f6" />
-                        <stop offset="100%" stopColor="#1d4ed8" />
-                      </linearGradient>
-                    </defs>
-                    <rect x="3" y="5" width="18" height="16" rx="4" stroke="url(#grad-stepper-3)" strokeWidth="2" fill="#eff6ff" />
-                    <path d="M3 10h18M8 3v4M16 3v4" stroke="url(#grad-stepper-3)" strokeWidth="2" strokeLinecap="round" />
-                    <circle cx="12" cy="15" r="2.5" fill="#ef4444" />
+                  <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                    <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01" />
                   </svg>
                 )
               },
@@ -556,16 +538,8 @@ export default function LandingPage() {
                 title: "Te notificamos",
                 desc: "Te avisamos por WhatsApp con todos los detalles.",
                 icon: (
-                  <svg className="w-9 h-9" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <linearGradient id="grad-stepper-4" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#22c55e" />
-                        <stop offset="100%" stopColor="#15803d" />
-                      </linearGradient>
-                    </defs>
-                    <path d="M12.031 2C6.517 2 2.04 6.476 2.04 11.99c0 1.763.459 3.486 1.332 5.006L1 23l5.166-1.354A9.97 9.97 0 0012.03 22c5.514 0 9.99-4.476 9.99-9.99C22.02 6.476 17.545 2 12.03 2z" fill="url(#grad-stepper-4)" />
-                    <path d="M12.03 3.6c4.63 0 8.39 3.76 8.39 8.39 0 4.63-3.76 8.39-8.39 8.39a8.31 8.31 0 01-4.26-1.17l-.31-.18-3.16.83.84-3.08-.2-.32a8.35 8.35 0 01-1.3-4.47c0-4.63 3.76-8.39 8.39-8.39z" fill="white" />
-                    <path d="M9.3 8c-.2-.45-.4-.45-.6-.45H8.3c-.2 0-.5.1-.8.4C7 8.3 6.3 9 6.3 10.3s1 2.6 1.1 2.8c.1.2 2 3 4.8 4.2 2.8 1.2 2.8.8 3.3.8.5 0 1.6-.7 1.8-1.3.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.6-.3-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.1-1.3-.5-2.5-1.6-1-1-1.7-2-1.9-2.3-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4-.1-.5-.1-.2-.8-1.9-1.1-2.6z" fill="url(#grad-stepper-4)" />
+                  <svg className="w-8 h-8 text-emerald-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12.004 2C6.48 2 2 6.48 2 12.004c0 1.762.455 3.48 1.32 5l-1.4 5.12 5.24-1.37a9.96 9.96 0 004.84 1.254c5.52 0 10-4.48 10-10.004C22.004 6.48 17.524 2 12.004 2zm5.72 14.33c-.22.62-.97 1.15-1.54 1.23-.41.06-.94.1-2.73-.64a10.22 10.22 0 01-4.73-4.16c-.14-.19-1.22-1.62-1.22-3.1s.8-2.2 1.08-2.48c.28-.28.6-.33.81-.33.21 0 .42 0 .6.01.19 0 .44-.07.7.53.26.62.9 2.19.98 2.35.08.16.13.34.02.55-.1.21-.15.34-.31.53-.16.19-.34.42-.48.56-.16.16-.33.33-.14.65.19.32.84 1.38 1.8 2.23.96.85 1.77 1.12 2.1 1.28.33.16.52.13.71-.09.19-.22.84-.97 1.06-1.31.22-.34.45-.28.76-.17.31.11 1.96.92 2.3 1.09.34.17.56.25.64.39.08.14.08.83-.14 1.45z"/>
                   </svg>
                 )
               }
