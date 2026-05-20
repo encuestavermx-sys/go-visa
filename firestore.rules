@@ -1,0 +1,171 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    // Collection: users
+    // Document ID: Firebase Auth UID
+    // Fields:
+    //   - uid: string (required, matching document ID)
+    //   - email: string (required, email format)
+    //   - displayName: string (required, <= 80 chars)
+    //   - role: string (required, 'admin' | 'user')
+    //   - createdAt: string (optional)
+    //
+    // Collection: applications
+    // Document ID: Firebase Auth UID (same as user uid)
+    // Fields:
+    //   - id: string (required, matching user UID)
+    //   - userId: string (required, matching user UID)
+    //   - userEmail: string (required, email format)
+    //   - userName: string (required, <= 80 chars)
+    //   - status: string (required, 'Nuevo' | 'En revisión' | 'Completado' | etc.)
+    //   - step: number (required, 1-5)
+    //   - formData: map (optional, containing DS-160 variables)
+    //   - visaScore: map (optional)
+    //   - adminNotes: string (optional, <= 2000 chars)
+    //   - appointment: map (optional)
+    //   - createdAt: string (required)
+    //   - updatedAt: string (required)
+    //
+    // Collection: documents
+    // Document ID: string (e.g. {userId}_{docType})
+    // Fields:
+    //   - id: string (required)
+    //   - userId: string (required, owner UID)
+    //   - docType: string (required, <= 50 chars)
+    //   - fileName: string (required, <= 150 chars)
+    //   - fileUrl: string (required, URL format)
+    //   - status: string (required, 'Pendiente' | 'Aprobado' | 'Rechazado')
+    //   - feedback: string (optional, <= 500 chars)
+    //   - updatedAt: string (required)
+    //
+    // Collection: messages
+    // Document ID: Auto-generated string
+    // Fields:
+    //   - applicationId: string (required, matches application/user UID)
+    //   - senderId: string (required, matches sender UID or 'admin')
+    //   - senderName: string (required, <= 80 chars)
+    //   - text: string (required, <= 1000 chars)
+    //   - timestamp: string (required)
+    //
+    // Collection: wait_times
+    // Document ID: cityId (e.g. 'cdmx')
+    // Fields:
+    //   - id: string (required)
+    //   - city: string (required)
+    //   - casWaitDays: number (required, positive)
+    //   - interviewWaitDays: number (required, positive)
+    // ===============================================================
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    function isAdmin() {
+      return isAuthenticated() && 
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    function isValidEmail(email) {
+      return email is string && email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    }
+
+    function isValidUrl(url) {
+      return url is string && (url.matches("^https://.*") || url.matches("^http://.*"));
+    }
+
+    // Collection: users
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isAdmin();
+      allow create: if isAuthenticated() && 
+        request.resource.data.keys().hasAll(['uid', 'email', 'displayName', 'role']) &&
+        request.resource.data.keys().hasOnly(['uid', 'email', 'displayName', 'role', 'createdAt']) &&
+        request.resource.data.uid == request.auth.uid &&
+        request.resource.data.email == request.auth.token.email &&
+        request.resource.data.displayName is string && request.resource.data.displayName.size() <= 80 &&
+        isValidEmail(request.resource.data.email) &&
+        request.resource.data.role == 'user'; // Users can only create role: 'user'
+      
+      allow update: if isAdmin() || (
+        isOwner(userId) &&
+        request.resource.data.role == resource.data.role && // Owner cannot change their own role to escalate
+        request.resource.data.email == resource.data.email &&
+        request.resource.data.displayName is string && request.resource.data.displayName.size() <= 80
+      );
+      allow delete: if isAdmin();
+    }
+
+    // Collection: applications
+    match /applications/{appId} {
+      allow read: if isOwner(appId) || isAdmin();
+      allow create: if isAuthenticated() && 
+        request.resource.data.userId == request.auth.uid &&
+        request.resource.data.userEmail == request.auth.token.email &&
+        request.resource.data.userName is string && request.resource.data.userName.size() <= 80 &&
+        request.resource.data.status == 'Nuevo' &&
+        request.resource.data.step == 1;
+      
+      allow update: if isAdmin() || (
+        isOwner(appId) &&
+        request.resource.data.userId == resource.data.userId &&
+        request.resource.data.userEmail == resource.data.userEmail &&
+        // Protect admin notes from being tampered with by the user
+        (!('adminNotes' in request.resource.data) || request.resource.data.adminNotes == resource.data.adminNotes)
+      );
+      allow delete: if isAdmin();
+    }
+
+    // Collection: documents
+    match /documents/{docId} {
+      allow read: if isAuthenticated() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if isAuthenticated() &&
+        request.resource.data.userId == request.auth.uid &&
+        request.resource.data.status == 'Pendiente' &&
+        request.resource.data.docType is string && request.resource.data.docType.size() <= 50 &&
+        request.resource.data.fileName is string && request.resource.data.fileName.size() <= 150 &&
+        isValidUrl(request.resource.data.fileUrl);
+        
+      allow update: if isAdmin() || (
+        isAuthenticated() &&
+        resource.data.userId == request.auth.uid &&
+        request.resource.data.userId == resource.data.userId &&
+        request.resource.data.docType == resource.data.docType &&
+        // Prevent user from changing the document status or feedback
+        request.resource.data.status == resource.data.status &&
+        request.resource.data.feedback == resource.data.feedback &&
+        isValidUrl(request.resource.data.fileUrl)
+      );
+      allow delete: if isAdmin() || (isAuthenticated() && resource.data.userId == request.auth.uid);
+    }
+
+    // Collection: messages
+    match /messages/{messageId} {
+      allow read: if isAuthenticated() && (
+        resource.data.applicationId == request.auth.uid || isAdmin()
+      );
+      allow create: if isAuthenticated() && (
+        (request.resource.data.applicationId == request.auth.uid && request.resource.data.senderId == request.auth.uid) ||
+        (isAdmin() && request.resource.data.senderId == 'admin')
+      ) &&
+      request.resource.data.text is string && request.resource.data.text.size() <= 1000 &&
+      request.resource.data.senderName is string && request.resource.data.senderName.size() <= 80;
+      
+      allow update, delete: if isAdmin();
+    }
+
+    // Collection: wait_times
+    match /wait_times/{cityId} {
+      allow read: if true; // Everyone can read consulate wait times
+      allow write: if isAdmin(); // Only admins can update wait times
+    }
+  }
+}
