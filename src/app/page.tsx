@@ -161,6 +161,40 @@ export default function LandingPage() {
   return (
     <div className="bg-[#f8f9ff] bg-grid-pattern text-[#0b1c30] min-h-screen selection:bg-primary/20 selection:text-primary flex flex-col overflow-x-hidden relative">
       
+      {/* Global World Map Watermark (for the whole page) */}
+      <div className="absolute inset-0 opacity-[0.015] pointer-events-none select-none z-0 overflow-hidden flex flex-col items-center justify-start pt-96 gap-[600px]">
+        <div className="w-[120%] max-w-[1400px] h-auto flex justify-center">
+          <svg className="w-full text-blue-700" viewBox="0 0 1000 500" fill="currentColor">
+            <path d="M150,120 c-20,-10 -40,-5 -50,15 c-10,20 10,40 30,50 c20,10 40,-10 60,-20 c20,-10 30,5 40,20 c10,15 -10,30 -20,40 c-10,10 -30,5 -40,15 c-10,10 0,30 20,40 c20,10 50,-10 70,-20 c20,-10 30,-30 40,-50 c10,-20 -10,-40 -30,-50 c-20,-10 -50,-10 -65,0-10,10 -25,-10 -40,-30 c-15,-20 -20,-10 -15,-10 Z" />
+            <path d="M220,290 c-10,10 -20,30 -25,50 c-5,20 5,40 15,60 c10,20 20,40 30,50 c10,10 15,0 15,-10 c0,-10 -5,-30 -5,-50 c0,-20 15,-40 25,-60 c10,-20 10,-45 5,-50 c-5,-5 -20,0 -35,5 c-15,5 -15,-5 -25,5 Z" />
+            <path d="M450,220 c-10,20 -15,40 -10,60 c5,20 20,40 35,60 c15,20 30,30 45,35 c15,5 25,-10 30,-25 c5,-15 15,-30 20,-50 c5,-20 -5,-40 -15,-55 c-10,-15 -25,-25 -40,-30 c-15,-5 -35,5 -50,5 c-15,0 -10,0 -15,0 Z" />
+            <path d="M420,110 c-15,10 -30,25 -20,45 c10,20 40,15 60,10 c20,-5 40,-15 60,-15 c20,0 40,10 60,20 c20,10 30,30 50,40 c20,10 40,-10 60,-20 c20,-10 30,-30 40,-50 c10,-20 -15,-40 -35,-50 c-20,-10 -50,-5 -70,5 c-20,10 -30,0 -40,-10 c-10,-10 -20,-20 -40,-25 c-20,-5 -45,15 -60,25 c-15,10 -25,-10 -40,-10 c-15,0 -15,20 -25,35 Z" />
+            <path d="M720,360 c-10,5 -20,15 -20,25 c0,10 10,20 25,25 c15,5 30,-5 40,-15 c10,-10 15,-25 10,-35 c-5,-10 -25,-10 -35,-5 c-10,5 -10,0 -20,5 Z" />
+            <path d="M320,60 c-10,-5 -20,5 -25,15 c-5,10 5,20 15,25 c10,5 20,-5 25,-15 c5,-10 -5,-20 -15,-25 Z" />
+          </svg>
+        </div>
+        <div className="w-[120%] max-w-[1400px] h-auto flex justify-center">
+          <svg className="w-full text-blue-700" viewBox="0 0 1000 500" fill="currentColor">
+            <path d="M150,120 c-20,-10 -40,-5 -50,15 c-10,20 10,40 30,50 c20,10 40,-10 60,-20 c20,-10 30,5 40,20 c10,15 -10,30 -20,40 c-10,10 -30,5 -40,15 c-10,10 0,30 20,40 c20,10 50,-10 70,-20 c20,-10 30,-30 40,-50 c10,-20 -10,-40 -30,-50 c-20,-10 -50,-10 -65,0-10,10 -25,-10 -40,-30 c-15,-20 -20,-10 -15,-10 Z" />
+            <path d="M220,290 c-10,10 -20,30 -25,50 c-5,20 5,40 15,60 c10,20 20,40 30,50 c10,10 15,0 15,-10 c0,-10 -5,-30 -5,-50 c0,-20 15,-40 25,-60 c10,-20 10,-45 5,-50 c-5,-5 -20,0 -35,5 c-15,5 -15,-5 -25,5 Z" />
+            <path d="M450,220 c-10,20 -15,40 -10,60 c5,20 20,40 35,60 c15,20 30,30 45,35 c15,5 25,-10 30,-25 c5,-15 15,-30 20,-50 c5,-20 -5,-40 -15,-55 c-10,-15 -25,-25 -40,-30 c-15,-5 -35,5 -50,5 c-15,0 -10,0 -15,0 Z" />
+            <path d="M420,110 c-15,10 -30,25 -20,45 c10,20 40,15 60,10 c20,-5 40,-15 60,-15 c20,0 40,10 60,20 c20,10 30,30 50,40 c20,10 40,-10 60,-20 c20,-10 30,-30 40,-50 c10,-20 -15,-40 -35,-50 c-20,-10 -50,-5 -70,5 c-20,10 -30,0 -40,-10 c-10,-10 -20,-20 -40,-25 c-20,-5 -45,15 -60,25 c-15,10 -25,-10 -40,-10 c-15,0 -15,20 -25,35 Z" />
+            <path d="M720,360 c-10,5 -20,15 -20,25 c0,10 10,20 25,25 c15,5 30,-5 40,-15 c10,-10 15,-25 10,-35 c-5,-10 -25,-10 -35,-5 c-10,5 -10,0 -20,5 Z" />
+            <path d="M320,60 c-10,-5 -20,5 -25,15 c-5,10 5,20 15,25 c10,5 20,-5 25,-15 c5,-10 -5,-20 -15,-25 Z" />
+          </svg>
+        </div>
+        <div className="w-[120%] max-w-[1400px] h-auto flex justify-center">
+          <svg className="w-full text-blue-700" viewBox="0 0 1000 500" fill="currentColor">
+            <path d="M150,120 c-20,-10 -40,-5 -50,15 c-10,20 10,40 30,50 c20,10 40,-10 60,-20 c20,-10 30,5 40,20 c10,15 -10,30 -20,40 c-10,10 -30,5 -40,15 c-10,10 0,30 20,40 c20,10 50,-10 70,-20 c20,-10 30,-30 40,-50 c10,-20 -10,-40 -30,-50 c-20,-10 -50,-10 -65,0-10,10 -25,-10 -40,-30 c-15,-20 -20,-10 -15,-10 Z" />
+            <path d="M220,290 c-10,10 -20,30 -25,50 c-5,20 5,40 15,60 c10,20 20,40 30,50 c10,10 15,0 15,-10 c0,-10 -5,-30 -5,-50 c0,-20 15,-40 25,-60 c10,-20 10,-45 5,-50 c-5,-5 -20,0 -35,5 c-15,5 -15,-5 -25,5 Z" />
+            <path d="M450,220 c-10,20 -15,40 -10,60 c5,20 20,40 35,60 c15,20 30,30 45,35 c15,5 25,-10 30,-25 c5,-15 15,-30 20,-50 c5,-20 -5,-40 -15,-55 c-10,-15 -25,-25 -40,-30 c-15,-5 -35,5 -50,5 c-15,0 -10,0 -15,0 Z" />
+            <path d="M420,110 c-15,10 -30,25 -20,45 c10,20 40,15 60,10 c20,-5 40,-15 60,-15 c20,0 40,10 60,20 c20,10 30,30 50,40 c20,10 40,-10 60,-20 c20,-10 30,-30 40,-50 c10,-20 -15,-40 -35,-50 c-20,-10 -50,-5 -70,5 c-20,10 -30,0 -40,-10 c-10,-10 -20,-20 -40,-25 c-20,-5 -45,15 -60,25 c-15,10 -25,-10 -40,-10 c-15,0 -15,20 -25,35 Z" />
+            <path d="M720,360 c-10,5 -20,15 -20,25 c0,10 10,20 25,25 c15,5 30,-5 40,-15 c10,-10 15,-25 10,-35 c-5,-10 -25,-10 -35,-5 c-10,5 -10,0 -20,5 Z" />
+            <path d="M320,60 c-10,-5 -20,5 -25,15 c-5,10 5,20 15,25 c10,5 20,-5 25,-15 c5,-10 -5,-20 -15,-25 Z" />
+          </svg>
+        </div>
+      </div>
+      
       {/* Upper Dark Container for Navbar, Hero and Trust Banner */}
       <div className="bg-[#030712] text-white relative overflow-hidden bg-grid-dark border-b border-white/5">
         {/* Dark Background Glows */}
@@ -533,7 +567,7 @@ export default function LandingPage() {
       </section>
 
       {/* Seccion "¿Por qué Go-Visa?" (Tema Azul Premium con Marca de Agua de Mapa Mundial) */}
-      <section id="por-que-go-visa" className="relative w-full bg-[#081325] py-24 text-white overflow-hidden border-t border-slate-800/80">
+      <section id="por-que-go-visa" className="relative w-full bg-[#081325] bg-grid-dark py-24 text-white overflow-hidden border-t border-slate-800/80">
         
         {/* Marca de Agua: Mapa del Mundo SVG */}
         <div className="absolute inset-0 opacity-[0.035] pointer-events-none select-none -z-0 flex items-center justify-center">
@@ -719,8 +753,20 @@ export default function LandingPage() {
       </section>
 
       {/* Consulate Wait Times Grid Widget */}
-      <section id="tiempos-espera" className="relative w-full bg-[#081325] py-24 text-white overflow-hidden border-t border-slate-800/80">
+      <section id="tiempos-espera" className="relative w-full bg-[#081325] bg-grid-dark py-24 text-white overflow-hidden border-t border-slate-800/80">
         
+        {/* Marca de Agua: Mapa del Mundo SVG */}
+        <div className="absolute inset-0 opacity-[0.035] pointer-events-none select-none -z-0 flex items-center justify-center">
+          <svg className="w-[110%] h-[110%] text-blue-400" viewBox="0 0 1000 500" fill="currentColor">
+            <path d="M150,120 c-20,-10 -40,-5 -50,15 c-10,20 10,40 30,50 c20,10 40,-10 60,-20 c20,-10 30,5 40,20 c10,15 -10,30 -20,40 c-10,10 -30,5 -40,15 c-10,10 0,30 20,40 c20,10 50,-10 70,-20 c20,-10 30,-30 40,-50 c10,-20 -10,-40 -30,-50 c-20,-10 -50,-10 -65,0-10,10 -25,-10 -40,-30 c-15,-20 -20,-10 -15,-10 Z" />
+            <path d="M220,290 c-10,10 -20,30 -25,50 c-5,20 5,40 15,60 c10,20 20,40 30,50 c10,10 15,0 15,-10 c0,-10 -5,-30 -5,-50 c0,-20 15,-40 25,-60 c10,-20 10,-45 5,-50 c-5,-5 -20,0 -35,5 c-15,5 -15,-5 -25,5 Z" />
+            <path d="M450,220 c-10,20 -15,40 -10,60 c5,20 20,40 35,60 c15,20 30,30 45,35 c15,5 25,-10 30,-25 c5,-15 15,-30 20,-50 c5,-20 -5,-40 -15,-55 c-10,-15 -25,-25 -40,-30 c-15,-5 -35,5 -50,5 c-15,0 -10,0 -15,0 Z" />
+            <path d="M420,110 c-15,10 -30,25 -20,45 c10,20 40,15 60,10 c20,-5 40,-15 60,-15 c20,0 40,10 60,20 c20,10 30,30 50,40 c20,10 40,-10 60,-20 c20,-10 30,-30 40,-50 c10,-20 -15,-40 -35,-50 c-20,-10 -50,-5 -70,5 c-20,10 -30,0 -40,-10 c-10,-10 -20,-20 -40,-25 c-20,-5 -45,15 -60,25 c-15,10 -25,-10 -40,-10 c-15,0 -15,20 -25,35 Z" />
+            <path d="M720,360 c-10,5 -20,15 -20,25 c0,10 10,20 25,25 c15,5 30,-5 40,-15 c10,-10 15,-25 10,-35 c-5,-10 -25,-10 -35,-5 c-10,5 -10,0 -20,5 Z" />
+            <path d="M320,60 c-10,-5 -20,5 -25,15 c-5,10 5,20 15,25 c10,5 20,-5 25,-15 c5,-10 -5,-20 -15,-25 Z" />
+          </svg>
+        </div>
+
         {/* Glow decoration inside dark section */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/5 rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -822,44 +868,44 @@ export default function LandingPage() {
       </section>
 
       {/* Calculadora de Factibilidad Section */}
-      <section id="calculadora-factibilidad" className="relative z-10 w-full bg-[#0c2045] py-20 overflow-hidden">
-        {/* Glow decoration inside dark section */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <section id="calculadora-factibilidad" className="relative z-10 w-full py-24 overflow-hidden border-t border-slate-200/60">
+        {/* Glow decoration inside light section */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-100/30 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-100/20 rounded-full blur-[120px] pointer-events-none -z-10"></div>
 
         <div className="w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Column - Information */}
             <div className="lg:col-span-5 space-y-6">
-              <span className="bg-blue-500/20 text-blue-200 border border-blue-400/30 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block">
+              <span className="bg-blue-50 text-blue-600 border border-blue-100 text-[10px] font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider inline-block">
                 Tecnología Inteligente
               </span>
-              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
+              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#0b1c30]">
                 Pre-evalúa tu probabilidad con nuestro algoritmo
               </h2>
-              <p className="text-slate-300 leading-relaxed text-sm md:text-base">
+              <p className="text-slate-600 leading-relaxed text-sm md:text-base">
                 Muchos rechazos consulares ocurren porque el solicitante no sabe cómo manifestar lazos consistentes. Nuestro asesor de perfil calcula el peso socioeconómico que verá el cónsul.
               </p>
               
               <ul className="space-y-4">
-                <li className="flex items-start gap-3 text-slate-200 text-sm">
-                  <span className="material-symbols-outlined text-blue-400 text-[20px] flex-shrink-0 mt-0.5">check_circle</span>
+                <li className="flex items-start gap-3 text-slate-700 text-sm">
+                  <span className="material-symbols-outlined text-blue-600 text-[20px] flex-shrink-0 mt-0.5">check_circle</span>
                   <span>Basado en manuales consulares reales de EE.UU.</span>
                 </li>
-                <li className="flex items-start gap-3 text-slate-200 text-sm">
-                  <span className="material-symbols-outlined text-blue-400 text-[20px] flex-shrink-0 mt-0.5">check_circle</span>
+                <li className="flex items-start gap-3 text-slate-700 text-sm">
+                  <span className="material-symbols-outlined text-blue-600 text-[20px] flex-shrink-0 mt-0.5">check_circle</span>
                   <span>Analiza tu arraigo escolar, laboral, mercantil y familiar</span>
                 </li>
-                <li className="flex items-start gap-3 text-slate-200 text-sm">
-                  <span className="material-symbols-outlined text-blue-400 text-[20px] flex-shrink-0 mt-0.5">check_circle</span>
+                <li className="flex items-start gap-3 text-slate-700 text-sm">
+                  <span className="material-symbols-outlined text-blue-600 text-[20px] flex-shrink-0 mt-0.5">check_circle</span>
                   <span>Tips locales para Ciudad de México y provincia</span>
                 </li>
               </ul>
 
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-5 flex items-start gap-3.5 leading-normal">
-                <span className="material-symbols-outlined text-emerald-400 text-[24px] flex-shrink-0 mt-0.5">verified_user</span>
-                <p className="text-xs text-slate-300">
+              <div className="bg-blue-50/50 border border-blue-100/60 rounded-2xl p-5 flex items-start gap-3.5 leading-normal">
+                <span className="material-symbols-outlined text-emerald-600 text-[24px] flex-shrink-0 mt-0.5">verified_user</span>
+                <p className="text-xs text-slate-600">
                   Cumplimos rigurosamente la Ley Federal de Protección de Datos Personales en Posesión de Particulares. Tus respuestas son de carácter confidencial.
                 </p>
               </div>
@@ -1036,7 +1082,7 @@ export default function LandingPage() {
                   <div className="pt-2">
                     <Link
                       href={`/register?score=${resultScore}`}
-                      className="w-full bg-[#0c2045] hover:bg-[#0c2045]/90 text-white py-3.5 px-6 rounded-xl font-bold transition-all flex items-center justify-center gap-2 shadow-sm text-sm active:scale-[0.98]"
+                      className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3.5 px-6 rounded-xl font-bold transition-all flex items-center justify-center gap-2 shadow-sm text-sm active:scale-[0.98]"
                     >
                       Guardar Perfil y Comenzar Roadmap de Visa-Go
                       <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
