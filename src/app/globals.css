@@ -130,3 +130,10 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #737688;
 }
+
+.bg-grid-pattern {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 62, 199, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 62, 199, 0.015) 1px, transparent 1px);
+}

@@ -159,7 +159,7 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className="bg-[#f8f9ff] text-[#0b1c30] min-h-screen selection:bg-primary/20 selection:text-primary flex flex-col overflow-x-hidden">
+    <div className="bg-[#f8f9ff] bg-grid-pattern text-[#0b1c30] min-h-screen selection:bg-primary/20 selection:text-primary flex flex-col overflow-x-hidden relative">
       {/* Background Glows */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
       <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
@@ -477,223 +477,229 @@ export default function LandingPage() {
       </section>
 
       {/* Calculadora de Factibilidad Section */}
-      <section id="calculadora-factibilidad" className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter py-20 border-t border-slate-200/60">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
-          {/* Left Column - Information */}
-          <div className="lg:col-span-5 space-y-6">
-            <span className="bg-blue-50 text-blue-600 border border-blue-100 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block">
-              Tecnología Inteligente
-            </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#0b1c30]">
-              Pre-evalúa tu probabilidad con nuestro algoritmo
-            </h2>
-            <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-              Muchos rechazos consulares ocurren porque el solicitante no sabe cómo manifestar lazos consistentes. Nuestro asesor de perfil calcula el peso socioeconómico que verá el cónsul.
-            </p>
-            
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3 text-slate-700 text-sm">
-                <span className="material-symbols-outlined text-blue-500 text-[20px] flex-shrink-0 mt-0.5">check_circle</span>
-                <span>Basado en manuales consulares reales de EE.UU.</span>
-              </li>
-              <li className="flex items-start gap-3 text-slate-700 text-sm">
-                <span className="material-symbols-outlined text-blue-500 text-[20px] flex-shrink-0 mt-0.5">check_circle</span>
-                <span>Analiza tu arraigo escolar, laboral, mercantil y familiar</span>
-              </li>
-              <li className="flex items-start gap-3 text-slate-700 text-sm">
-                <span className="material-symbols-outlined text-blue-500 text-[20px] flex-shrink-0 mt-0.5">check_circle</span>
-                <span>Tips locales para Ciudad de México y provincia</span>
-              </li>
-            </ul>
+      <section id="calculadora-factibilidad" className="relative z-10 w-full bg-[#0c2045] py-20 overflow-hidden">
+        {/* Glow decoration inside dark section */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] pointer-events-none"></div>
 
-            <div className="bg-slate-50 border border-slate-100 rounded-2xl p-5 flex items-start gap-3.5 leading-normal">
-              <span className="material-symbols-outlined text-emerald-500 text-[24px] flex-shrink-0 mt-0.5">verified_user</span>
-              <p className="text-xs text-slate-500">
-                Cumplimos rigurosamente la Ley Federal de Protección de Datos Personales en Posesión de Particulares. Tus respuestas son de carácter confidencial.
+        <div className="w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left Column - Information */}
+            <div className="lg:col-span-5 space-y-6">
+              <span className="bg-blue-500/20 text-blue-200 border border-blue-400/30 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block">
+                Tecnología Inteligente
+              </span>
+              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
+                Pre-evalúa tu probabilidad con nuestro algoritmo
+              </h2>
+              <p className="text-slate-300 leading-relaxed text-sm md:text-base">
+                Muchos rechazos consulares ocurren porque el solicitante no sabe cómo manifestar lazos consistentes. Nuestro asesor de perfil calcula el peso socioeconómico que verá el cónsul.
               </p>
+              
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3 text-slate-200 text-sm">
+                  <span className="material-symbols-outlined text-blue-400 text-[20px] flex-shrink-0 mt-0.5">check_circle</span>
+                  <span>Basado en manuales consulares reales de EE.UU.</span>
+                </li>
+                <li className="flex items-start gap-3 text-slate-200 text-sm">
+                  <span className="material-symbols-outlined text-blue-400 text-[20px] flex-shrink-0 mt-0.5">check_circle</span>
+                  <span>Analiza tu arraigo escolar, laboral, mercantil y familiar</span>
+                </li>
+                <li className="flex items-start gap-3 text-slate-200 text-sm">
+                  <span className="material-symbols-outlined text-blue-400 text-[20px] flex-shrink-0 mt-0.5">check_circle</span>
+                  <span>Tips locales para Ciudad de México y provincia</span>
+                </li>
+              </ul>
+
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-5 flex items-start gap-3.5 leading-normal">
+                <span className="material-symbols-outlined text-emerald-400 text-[24px] flex-shrink-0 mt-0.5">verified_user</span>
+                <p className="text-xs text-slate-300">
+                  Cumplimos rigurosamente la Ley Federal de Protección de Datos Personales en Posesión de Particulares. Tus respuestas son de carácter confidencial.
+                </p>
+              </div>
             </div>
-          </div>
 
-          {/* Right Column - Form Card */}
-          <div className="lg:col-span-7 bg-white border border-slate-200/80 rounded-3xl p-6 md:p-8 shadow-sm relative overflow-hidden">
-            <h3 className="text-lg font-bold text-[#0b1c30] flex items-center gap-2 mb-6 border-b border-slate-100 pb-4">
-              <span className="material-symbols-outlined text-blue-500 animate-pulse">auto_awesome</span>
-              Calculadora de Idoneidad B1/B2
-            </h3>
-            
-            <form onSubmit={handleEvaluate} className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {/* Question 1 */}
-              <div className="space-y-1.5">
-                <label className="text-xs text-slate-500 font-bold">¿Tienes pasaporte mexicano vigente?</label>
-                <div className="relative">
-                  <select
-                    value={passport}
-                    onChange={(e) => setPassport(e.target.value)}
-                    className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-[#0b1c30] focus:border-blue-500 outline-none cursor-pointer appearance-none"
-                  >
-                    <option value="si_valida">Sí (Vigencia mayor a 6 meses)</option>
-                    <option value="si_corta">Sí (Vigencia menor a 6 meses)</option>
-                    <option value="no">No (Tengo que tramitarlo)</option>
-                  </select>
-                  <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-[18px]">expand_more</span>
-                </div>
-              </div>
-
-              {/* Question 2 */}
-              <div className="space-y-1.5">
-                <label className="text-xs text-slate-500 font-bold">Rango de edad</label>
-                <div className="relative">
-                  <select
-                    value={age}
-                    onChange={(e) => setAge(e.target.value)}
-                    className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-[#0b1c30] focus:border-blue-500 outline-none cursor-pointer appearance-none"
-                  >
-                    <option value="menos_18">Menos de 18 años</option>
-                    <option value="18_25">18 a 25 años</option>
-                    <option value="26_40">26 a 40 años</option>
-                    <option value="41_60">41 a 60 años</option>
-                    <option value="mas_60">Más de 60 años</option>
-                  </select>
-                  <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-[18px]">expand_more</span>
-                </div>
-              </div>
-
-              {/* Question 3 */}
-              <div className="space-y-1.5">
-                <label className="text-xs text-slate-500 font-bold">Situación Laboral / Académica</label>
-                <div className="relative">
-                  <select
-                    value={work}
-                    onChange={(e) => setWork(e.target.value)}
-                    className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-[#0b1c30] focus:border-blue-500 outline-none cursor-pointer appearance-none"
-                  >
-                    <option value="empleado">Empleado (Nómina estable)</option>
-                    <option value="empresario">Empresario / Socio / Autoempleado</option>
-                    <option value="estudiante">Estudiante</option>
-                    <option value="jubilado">Jubilado / Pensionado</option>
-                    <option value="desempleado">Desempleado / Labores del hogar</option>
-                  </select>
-                  <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-[18px]">expand_more</span>
-                </div>
-              </div>
-
-              {/* Question 4 */}
-              <div className="space-y-1.5">
-                <label className="text-xs text-slate-500 font-bold">Ingresos mensuales netos (MXN)</label>
-                <div className="relative">
-                  <select
-                    value={income}
-                    onChange={(e) => setIncome(e.target.value)}
-                    className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-[#0b1c30] focus:border-blue-500 outline-none cursor-pointer appearance-none"
-                  >
-                    <option value="menos_10">Menos de $10,000 netos</option>
-                    <option value="10_25">$10,000 - $25,000 netos</option>
-                    <option value="25_50">$25,000 - $50,000 netos</option>
-                    <option value="mas_50">Más de $50,000 netos</option>
-                  </select>
-                  <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-[18px]">expand_more</span>
-                </div>
-              </div>
-
-              {/* Question 5 */}
-              <div className="space-y-1.5">
-                <label className="text-xs text-slate-500 font-bold">Historial de viajes al extranjero</label>
-                <div className="relative">
-                  <select
-                    value={travel}
-                    onChange={(e) => setTravel(e.target.value)}
-                    className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-[#0b1c30] focus:border-blue-500 outline-none cursor-pointer appearance-none"
-                  >
-                    <option value="no">No (Sería primer salida internacional)</option>
-                    <option value="latam">Sí (Solo América Latina / Caribe)</option>
-                    <option value="top">Sí (EE.UU., Europa, Asia o Canadá)</option>
-                  </select>
-                  <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-[18px]">expand_more</span>
-                </div>
-              </div>
-
-              {/* Question 6 */}
-              <div className="space-y-1.5">
-                <label className="text-xs text-slate-500 font-bold">Lazos de retorno (Propiedades, Activos)</label>
-                <div className="relative">
-                  <select
-                    value={ties}
-                    onChange={(e) => setTies(e.target.value)}
-                    className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-[#0b1c30] focus:border-blue-500 outline-none cursor-pointer appearance-none"
-                  >
-                    <option value="fuertes">Fuertes (Propiedades, negocio propio, empleo estable)</option>
-                    <option value="moderados">Moderados (Estudios vigentes, renta estable)</option>
-                    <option value="debiles">Débiles (Sin bienes ni empleo formal actualmente)</option>
-                  </select>
-                  <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-[18px]">expand_more</span>
-                </div>
-              </div>
-
-              <div className="md:col-span-2 pt-2">
-                <button
-                  type="submit"
-                  disabled={loadingEvaluate}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 shadow-md shadow-blue-500/10 cursor-pointer active:scale-[0.98]"
-                >
-                  {loadingEvaluate ? (
-                    <>
-                      <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                      </svg>
-                      Analizando perfil...
-                    </>
-                  ) : (
-                    <>
-                      <span className="material-symbols-outlined text-[18px]">auto_awesome</span>
-                      Evaluar Perfil Ahora
-                    </>
-                  )}
-                </button>
-              </div>
-            </form>
-
-            {/* Results section */}
-            {evaluated && (
-              <div className="mt-8 border border-emerald-200 bg-emerald-50/40 rounded-2xl p-5 md:p-6 space-y-4 animate-fade-in">
-                <div className="flex items-center justify-between border-b border-emerald-100 pb-3 flex-wrap gap-2">
-                  <div className="text-xs font-bold text-emerald-800 tracking-wide uppercase">
-                    DIAGNÓSTICO CONSULAR PRÓVIDO:
-                  </div>
-                  <div className="bg-emerald-100 text-emerald-800 text-[11px] font-extrabold px-3 py-1 rounded-full border border-emerald-250">
-                    SCORE: {resultScore}/100
+            {/* Right Column - Form Card */}
+            <div className="lg:col-span-7 bg-white border border-slate-200/80 rounded-3xl p-6 md:p-8 shadow-xl relative overflow-hidden">
+              <h3 className="text-lg font-bold text-[#0b1c30] flex items-center gap-2 mb-6 border-b border-slate-100 pb-4">
+                <span className="material-symbols-outlined text-blue-500 animate-pulse">auto_awesome</span>
+                Calculadora de Idoneidad B1/B2
+              </h3>
+              
+              <form onSubmit={handleEvaluate} className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {/* Question 1 */}
+                <div className="space-y-1.5">
+                  <label className="text-xs text-slate-500 font-bold">¿Tienes pasaporte mexicano vigente?</label>
+                  <div className="relative">
+                    <select
+                      value={passport}
+                      onChange={(e) => setPassport(e.target.value)}
+                      className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-[#0b1c30] focus:border-blue-500 outline-none cursor-pointer appearance-none"
+                    >
+                      <option value="si_valida">Sí (Vigencia mayor a 6 meses)</option>
+                      <option value="si_corta">Sí (Vigencia menor a 6 meses)</option>
+                      <option value="no">No (Tengo que tramitarlo)</option>
+                    </select>
+                    <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-[18px]">expand_more</span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 text-[#0b1c30] font-extrabold text-base">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-                  {resultLevel}
+                {/* Question 2 */}
+                <div className="space-y-1.5">
+                  <label className="text-xs text-slate-500 font-bold">Rango de edad</label>
+                  <div className="relative">
+                    <select
+                      value={age}
+                      onChange={(e) => setAge(e.target.value)}
+                      className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-[#0b1c30] focus:border-blue-500 outline-none cursor-pointer appearance-none"
+                    >
+                      <option value="menos_18">Menos de 18 años</option>
+                      <option value="18_25">18 a 25 años</option>
+                      <option value="26_40">26 a 40 años</option>
+                      <option value="41_60">41 a 60 años</option>
+                      <option value="mas_60">Más de 60 años</option>
+                    </select>
+                    <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-[18px]">expand_more</span>
+                  </div>
                 </div>
 
-                <div className="space-y-2">
-                  <h4 className="text-xs font-bold text-[#0b1c30]">Puntos clave para afianzar en tu trámite:</h4>
-                  <ul className="space-y-2.5">
-                    {resultRecs.map((rec, i) => (
-                      <li key={i} className="text-xs text-slate-700 flex items-start gap-2 leading-relaxed">
-                        <span className="material-symbols-outlined text-amber-500 text-[16px] mt-0.5">warning</span>
-                        <span>{rec}</span>
-                      </li>
-                    ))}
-                  </ul>
+                {/* Question 3 */}
+                <div className="space-y-1.5">
+                  <label className="text-xs text-slate-500 font-bold">Situación Laboral / Académica</label>
+                  <div className="relative">
+                    <select
+                      value={work}
+                      onChange={(e) => setWork(e.target.value)}
+                      className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-[#0b1c30] focus:border-blue-500 outline-none cursor-pointer appearance-none"
+                    >
+                      <option value="empleado">Empleado (Nómina estable)</option>
+                      <option value="empresario">Empresario / Socio / Autoempleado</option>
+                      <option value="estudiante">Estudiante</option>
+                      <option value="jubilado">Jubilado / Pensionado</option>
+                      <option value="desempleado">Desempleado / Labores del hogar</option>
+                    </select>
+                    <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-[18px]">expand_more</span>
+                  </div>
                 </div>
 
-                <div className="pt-2">
-                  <Link
-                    href={`/register?score=${resultScore}`}
-                    className="w-full bg-[#0c2045] hover:bg-[#0c2045]/90 text-white py-3.5 px-6 rounded-xl font-bold transition-all flex items-center justify-center gap-2 shadow-sm text-sm active:scale-[0.98]"
+                {/* Question 4 */}
+                <div className="space-y-1.5">
+                  <label className="text-xs text-slate-500 font-bold">Ingresos mensuales netos (MXN)</label>
+                  <div className="relative">
+                    <select
+                      value={income}
+                      onChange={(e) => setIncome(e.target.value)}
+                      className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-[#0b1c30] focus:border-blue-500 outline-none cursor-pointer appearance-none"
+                    >
+                      <option value="menos_10">Menos de $10,000 netos</option>
+                      <option value="10_25">$10,000 - $25,000 netos</option>
+                      <option value="25_50">$25,000 - $50,000 netos</option>
+                      <option value="mas_50">Más de $50,000 netos</option>
+                    </select>
+                    <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-[18px]">expand_more</span>
+                  </div>
+                </div>
+
+                {/* Question 5 */}
+                <div className="space-y-1.5">
+                  <label className="text-xs text-slate-500 font-bold">Historial de viajes al extranjero</label>
+                  <div className="relative">
+                    <select
+                      value={travel}
+                      onChange={(e) => setTravel(e.target.value)}
+                      className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-[#0b1c30] focus:border-blue-500 outline-none cursor-pointer appearance-none"
+                    >
+                      <option value="no">No (Sería primer salida internacional)</option>
+                      <option value="latam">Sí (Solo América Latina / Caribe)</option>
+                      <option value="top">Sí (EE.UU., Europa, Asia o Canadá)</option>
+                    </select>
+                    <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-[18px]">expand_more</span>
+                  </div>
+                </div>
+
+                {/* Question 6 */}
+                <div className="space-y-1.5">
+                  <label className="text-xs text-slate-500 font-bold">Lazos de retorno (Propiedades, Activos)</label>
+                  <div className="relative">
+                    <select
+                      value={ties}
+                      onChange={(e) => setTies(e.target.value)}
+                      className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-[#0b1c30] focus:border-blue-500 outline-none cursor-pointer appearance-none"
+                    >
+                      <option value="fuertes">Fuertes (Propiedades, negocio propio, empleo estable)</option>
+                      <option value="moderados">Moderados (Estudios vigentes, renta estable)</option>
+                      <option value="debiles">Débiles (Sin bienes ni empleo formal actualmente)</option>
+                    </select>
+                    <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-[18px]">expand_more</span>
+                  </div>
+                </div>
+
+                <div className="md:col-span-2 pt-2">
+                  <button
+                    type="submit"
+                    disabled={loadingEvaluate}
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 shadow-md shadow-blue-500/10 cursor-pointer active:scale-[0.98]"
                   >
-                    Guardar Perfil y Comenzar Roadmap de Visa-Go
-                    <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
-                  </Link>
+                    {loadingEvaluate ? (
+                      <>
+                        <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                        </svg>
+                        Analizando perfil...
+                      </>
+                    ) : (
+                      <>
+                        <span className="material-symbols-outlined text-[18px]">auto_awesome</span>
+                        Evaluar Perfil Ahora
+                      </>
+                    )}
+                  </button>
                 </div>
-              </div>
-            )}
+              </form>
+
+              {/* Results section */}
+              {evaluated && (
+                <div className="mt-8 border border-emerald-200 bg-emerald-50/40 rounded-2xl p-5 md:p-6 space-y-4 animate-fade-in">
+                  <div className="flex items-center justify-between border-b border-emerald-100 pb-3 flex-wrap gap-2">
+                    <div className="text-xs font-bold text-emerald-800 tracking-wide uppercase">
+                      DIAGNÓSTICO CONSULAR PRÓVIDO:
+                    </div>
+                    <div className="bg-emerald-100 text-emerald-800 text-[11px] font-extrabold px-3 py-1 rounded-full border border-emerald-250">
+                      SCORE: {resultScore}/100
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2 text-[#0b1c30] font-extrabold text-base">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                    {resultLevel}
+                  </div>
+
+                  <div className="space-y-2">
+                    <h4 className="text-xs font-bold text-[#0b1c30]">Puntos clave para afianzar en tu trámite:</h4>
+                    <ul className="space-y-2.5">
+                      {resultRecs.map((rec, i) => (
+                        <li key={i} className="text-xs text-slate-700 flex items-start gap-2 leading-relaxed">
+                          <span className="material-symbols-outlined text-amber-500 text-[16px] mt-0.5">warning</span>
+                          <span>{rec}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="pt-2">
+                    <Link
+                      href={`/register?score=${resultScore}`}
+                      className="w-full bg-[#0c2045] hover:bg-[#0c2045]/90 text-white py-3.5 px-6 rounded-xl font-bold transition-all flex items-center justify-center gap-2 shadow-sm text-sm active:scale-[0.98]"
+                    >
+                      Guardar Perfil y Comenzar Roadmap de Visa-Go
+                      <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </section>
