@@ -615,8 +615,12 @@ export const waitTimeService = {
       });
       // Fallback to initial if firestore is empty
       if (list.length === 0) {
-        for (const item of INITIAL_WAIT_TIMES) {
-          await setDoc(doc(db, "wait_times", item.id), item);
+        try {
+          for (const item of INITIAL_WAIT_TIMES) {
+            await setDoc(doc(db, "wait_times", item.id), item);
+          }
+        } catch (error) {
+          console.warn("Could not seed wait_times to Firestore (normal if not admin):", error);
         }
         return INITIAL_WAIT_TIMES;
       }
