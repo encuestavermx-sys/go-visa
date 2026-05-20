@@ -298,28 +298,43 @@ export default function LandingPage() {
 
                 {/* 2. Pasaporte detrás del teléfono */}
                 <div className="absolute left-4 top-24 w-[160px] md:w-[190px] h-[220px] md:h-[260px] animate-float-passport z-0">
-                  <div className="w-full h-full bg-[#0a1835] rounded-xl border border-blue-900/40 p-4 shadow-2xl flex flex-col justify-between text-left select-none relative overflow-hidden">
+                  <div className="w-full h-full bg-gradient-to-br from-[#003d29] to-[#012519] rounded-xl border border-[#005e3f]/40 p-4 shadow-2xl flex flex-col justify-between text-left select-none relative overflow-hidden">
                     {/* Glow inside passport */}
-                    <div className="absolute -top-12 -left-12 w-28 h-28 bg-yellow-500/5 rounded-full blur-xl"></div>
+                    <div className="absolute -top-12 -left-12 w-28 h-28 bg-[#d4af37]/5 rounded-full blur-xl"></div>
                     
                     {/* Passport content */}
                     <div className="space-y-1.5">
-                      <div className="text-[10px] md:text-xs font-serif tracking-[0.2em] text-[#d4af37] font-semibold opacity-90 uppercase">PASSPORT</div>
+                      <div className="text-[10px] md:text-xs font-serif tracking-[0.2em] text-[#d4af37] font-semibold opacity-90 uppercase">MÉXICO</div>
                       <div className="w-8 h-[1px] bg-[#d4af37]/40"></div>
                     </div>
                     
-                    {/* Passport Emblem (US Style) */}
-                    <div className="my-auto flex justify-center py-2 text-[#d4af37]/75 text-center">
-                      <svg className="w-14 h-14 md:w-16 md:h-16 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                        <circle cx="12" cy="12" r="10" />
-                        <circle cx="12" cy="12" r="7" strokeDasharray="2 2" />
-                        <path d="M12 2v20M2 12h20M12 12L5 5m14 14l-7-7" />
+                    {/* Passport Emblem (Mexican Style) */}
+                    <div className="my-auto flex justify-center py-2 text-[#d4af37]/80 text-center">
+                      <svg className="w-16 h-16 md:w-[76px] md:h-[76px] mx-auto" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.2">
+                        {/* Outer circular pattern */}
+                        <circle cx="50" cy="50" r="38" strokeDasharray="3 3" />
+                        <circle cx="50" cy="50" r="32" opacity="0.4" />
+                        
+                        {/* Stylized eagle silhouette in gold */}
+                        <path d="M50 28c1.5-1.5 3-2 5-2s3.5.5 4 1.5-1.5 3-4 4-5-1.5-5-3.5z" fill="currentColor" fillOpacity="0.25" />
+                        
+                        {/* Wings and tail feathers */}
+                        <path strokeLinecap="round" d="M43 38c-5-2-9.5.5-12 4.5 4-1 8-1.5 12-1M57 38c5-2 9.5.5 12 4.5-4-1-8-1.5-12-1" />
+                        <path strokeLinecap="round" d="M45 42c-2 4-3 8-3 12 4-1.5 8-2 11-1M55 42c2 4 3 8 3 12-4-1.5-8-2-11-1" />
+                        
+                        {/* Snake and beak */}
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M49 32c-1.5 2-1 4 .5 5s3.5-1.5 4-.5-1.5 3.5-2.5 4.5.5 2.5 1.5 1.5" />
+                        
+                        {/* Cactus pads base */}
+                        <path strokeLinecap="round" d="M38 62c6 2 18 2 24 0M45 62v10M50 62v10M55 62v10" />
+                        
+                        {/* Laurel branches */}
+                        <path strokeLinecap="round" d="M28 58c-2-8 .5-16.5 5.5-21M72 58c2-8-.5-16.5-5.5-21" strokeDasharray="2 2" />
                       </svg>
                     </div>
 
                     <div className="space-y-1">
-                      <div className="text-[8px] md:text-[9px] font-serif tracking-widest text-[#d4af37]/90 font-medium uppercase">United States</div>
-                      <div className="text-[8px] md:text-[9px] font-serif tracking-widest text-[#d4af37]/90 font-medium uppercase">of America</div>
+                      <div className="text-[10px] md:text-xs font-serif tracking-[0.22em] text-[#d4af37]/90 font-semibold uppercase">PASAPORTE</div>
                     </div>
                   </div>
                 </div>
