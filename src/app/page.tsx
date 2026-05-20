@@ -166,24 +166,30 @@ export default function LandingPage() {
 
       {/* Navbar */}
       <header className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter h-20 flex items-center justify-between border-b border-slate-200/60">
-        <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
-          <img src="/logo.png" alt="Go-Visa Logo" className="h-9 w-auto object-contain" />
-        </Link>
+        <div className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
+            <img src="/logo.png" alt="Go-Visa Logo" className="h-9 w-auto object-contain" />
+          </Link>
+          <span className="bg-blue-50 border border-blue-100 text-primary text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wider">
+            B1/B2
+          </span>
+        </div>
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-          <a href="#como-funciona" className="hover:text-primary transition-colors">Cómo funciona</a>
-          <a href="#beneficios" className="hover:text-primary transition-colors">Beneficios</a>
-          <a href="#tiempos-espera" className="hover:text-primary transition-colors">Citas y Esperas</a>
-          <a href="#preguntas-frecuentes" className="hover:text-primary transition-colors">Preguntas Frecuentes</a>
+          <a href="#como-funciona" className="hover:text-primary transition-colors">¿Cómo funciona?</a>
+          <a href="#calculadora-factibilidad" className="hover:text-primary transition-colors">Evaluador Inteligente</a>
+          <a href="#tiempos-espera" className="hover:text-primary transition-colors">Tiempos de Espera</a>
+          <a href="#testimonios" className="hover:text-primary transition-colors">Testimonios</a>
         </nav>
 
         <div className="flex items-center gap-4">
           {currentUser ? (
             <Link
               href={currentUser.role === "admin" ? "/admin" : "/dashboard"}
-              className="bg-primary text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-primary/10"
+              className="bg-primary hover:bg-primary/95 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all flex items-center gap-1.5 active:scale-[0.98] shadow-lg shadow-primary/10"
             >
-              Ir a mi Dashboard
+              Iniciar Trámite
+              <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
             </Link>
           ) : (
             <>
@@ -192,9 +198,10 @@ export default function LandingPage() {
               </Link>
               <Link
                 href="/register"
-                className="bg-primary text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-primary/10"
+                className="bg-primary hover:bg-primary/95 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all flex items-center gap-1.5 active:scale-[0.98] shadow-lg shadow-primary/10"
               >
-                Comenzar Trámite
+                Iniciar Trámite
+                <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
               </Link>
             </>
           )}
@@ -687,6 +694,83 @@ export default function LandingPage() {
                 </div>
               </div>
             )}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="testimonios" className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter py-20 border-t border-slate-200/60">
+        <div className="text-center mb-16 max-w-[800px] mx-auto">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-[#0b1c30] tracking-tight">
+            La seguridad que necesitas, respaldada por casos de éxito
+          </h2>
+          <p className="text-slate-600 text-sm md:text-base">
+            Cientos de solicitantes que usaron nuestra plataforma lograron su visa americana sin costosos asesores tradicionales.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Card 1 */}
+          <div className="bg-white border border-slate-200/60 rounded-3xl p-8 flex flex-col justify-between shadow-[0_8px_30px_rgb(0,0,0,0.015)] hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgb(0,0,0,0.04)] transition-all duration-300">
+            <div className="space-y-4">
+              <div className="flex gap-1 text-amber-500 text-lg">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <p className="text-slate-600 text-sm md:text-base italic leading-relaxed">
+                &ldquo;Estaba aterrorizada por la entrevista. Usar el simulador de IA de Go-Visa me ayudó a practicar mis respuestas de ingresos y lazos fuertes con México. Llegué segura y me la otorgaron sin problemas.&rdquo;
+              </p>
+            </div>
+            <div className="flex items-center justify-between mt-8 pt-6 border-t border-slate-100">
+              <div>
+                <h4 className="font-bold text-[#0b1c30] text-sm md:text-base">Sofía Martínez</h4>
+                <p className="text-xs text-slate-400">Jalisco (Cita en Guadalajara)</p>
+              </div>
+              <span className="bg-[#e6f7ed] text-[#0d7a3c] text-[10px] md:text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
+                Visa Aprobada - Mayo 2026
+              </span>
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div className="bg-white border border-slate-200/60 rounded-3xl p-8 flex flex-col justify-between shadow-[0_8px_30px_rgb(0,0,0,0.015)] hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgb(0,0,0,0.04)] transition-all duration-300">
+            <div className="space-y-4">
+              <div className="flex gap-1 text-amber-500 text-lg">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <p className="text-slate-600 text-sm md:text-base italic leading-relaxed">
+                &ldquo;La DS-160 en el sitio oficial es una pesadilla de caídas y mala traducción. El cuestionario simplificado de Go-Visa me guió paso a paso y me guardaron todo ordenado. Excelente servicio.&rdquo;
+              </p>
+            </div>
+            <div className="flex items-center justify-between mt-8 pt-6 border-t border-slate-100">
+              <div>
+                <h4 className="font-bold text-[#0b1c30] text-sm md:text-base">Alejandro Ruiz</h4>
+                <p className="text-xs text-slate-400">Nuevo León (Cita en Monterrey)</p>
+              </div>
+              <span className="bg-[#e6f7ed] text-[#0d7a3c] text-[10px] md:text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
+                Visa Aprobada - Abril 2026
+              </span>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="bg-white border border-slate-200/60 rounded-3xl p-8 flex flex-col justify-between shadow-[0_8px_30px_rgb(0,0,0,0.015)] hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgb(0,0,0,0.04)] transition-all duration-300">
+            <div className="space-y-4">
+              <div className="flex gap-1 text-amber-500 text-lg">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <p className="text-slate-600 text-sm md:text-base italic leading-relaxed">
+                &ldquo;Mi visa venció hace un año, no sabía si requería entrevista presencial de nuevo. El test de elegibilidad me confirmó que era elegible para exención. Ahorré muchísimo estrés.&rdquo;
+              </p>
+            </div>
+            <div className="flex items-center justify-between mt-8 pt-6 border-t border-slate-100">
+              <div>
+                <h4 className="font-bold text-[#0b1c30] text-sm md:text-base">Gabriela Torres</h4>
+                <p className="text-xs text-slate-400">CDMX (Cita en CDMX)</p>
+              </div>
+              <span className="bg-[#e6f7ed] text-[#0d7a3c] text-[10px] md:text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
+                Visa Renovada - Hace 2 semanas
+              </span>
+            </div>
           </div>
         </div>
       </section>
