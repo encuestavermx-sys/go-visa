@@ -12,31 +12,27 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// Check if all essential keys are present
-// NOTE: Firebase Auth providers (Email/Password, Google) need to be enabled in the
-// Firebase Console before real auth works. Until then, we use the localStorage mock system.
-export const isFirebaseConfigured = false;
+// Firebase is configured - Google Auth is enabled in the console.
+// Email/Password must also be enabled in Firebase Console > Authentication > Sign-in method.
+export const isFirebaseConfigured = !!(
+  firebaseConfig.apiKey &&
+  firebaseConfig.projectId &&
+  firebaseConfig.authDomain
+);
 
 let app;
 let auth: any = null;
 let db: any = null;
 let storage: any = null;
 
-if (isFirebaseConfigured) {
-  try {
-    app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
-    auth = getAuth(app);
-    db = getFirestore(app);
-    storage = getStorage(app);
-  } catch (error) {
-    console.error("Error initializing Firebase:", error);
-  }
-} else {
-  if (typeof window !== "undefined") {
-    console.warn(
-      "Firebase environment variables are missing. Using local storage mock services."
-    );
-  }
+// Always initialize Firebase app so signInWithPopup works
+try {
+  app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
+  auth = getAuth(app);
+  db = getFirestore(app);
+  storage = getStorage(app);
+} catch (error) {
+  console.error("Error initializing Firebase:", error);
 }
 
 export { auth, db, storage };

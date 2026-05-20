@@ -10,6 +10,7 @@ import {
   signOut,
   onAuthStateChanged,
   GoogleAuthProvider,
+  signInWithPopup,
   signInWithCredential,
   User as FirebaseUser,
 } from "firebase/auth";
@@ -263,6 +264,51 @@ export const authService = {
  
       return newUser;
     }
+  },
+
+  loginWithGoogle: async () => {
+    // Real Google OAuth popup - works when Google is enabled in Firebase Console
+    const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: "select_account" });
+    const result = await signInWithPopup(auth, provider);
+    const fbUser = result.user;
+
+    // Upsert user doc in Firestore
+    const userRef = doc(db, "users", fbUser.uid);
+    const userSnap = await getDoc(userRef);
+    let role = "user";
+    let displayName = fbUser.displayName || fbUser.email?.split("@")[0] || "Usuario";
+
+    if (!userSnap.exists()) {
+      const userData = {
+        uid: fbUser.uid,
+        email: fbUser.email,
+        displayName,
+        role,
+        createdAt: new Date().toISOString(),
+      };
+      await setDoc(userRef, userData);
+
+      // Create their application
+      const appRef = doc(db, "applications", fbUser.uid);
+      await setDoc(appRef, {
+        id: fbUser.uid,
+        userId: fbUser.uid,
+        userEmail: fbUser.email,
+        userName: displayName,
+        status: "Nuevo",
+        step: 1,
+        formData: { firstName: displayName.split(" ")[0], email: fbUser.email },
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+        visaScore: null,
+      });
+    } else {
+      role = userSnap.data().role || "user";
+      displayName = userSnap.data().displayName || displayName;
+    }
+
+    return { uid: fbUser.uid, email: fbUser.email, role, displayName };
   },
 
   logout: async () => {

@@ -52,74 +52,23 @@ export default function RegisterPage() {
   };
 
   const handleGoogleRegister = async () => {
-    const googleEmail = window.prompt("Ingresa tu correo Gmail para registrarte:");
-    if (!googleEmail || !googleEmail.includes("@")) {
-      setError("Por favor ingresa un correo Gmail válido.");
-      return;
-    }
-
     setLoading(true);
     setError("");
     try {
-      const USERS_KEY = "go-visa_users";
-      const APPS_KEY = "go-visa_applications";
-      const initialUsers = [
-        { uid: "admin-1", email: "admin@govisa.mx", role: "admin", displayName: "Admin Go-Visa" },
-        { uid: "user-1", email: "carlos@example.com", role: "user", displayName: "Carlos Méndez" },
-        { uid: "user-2", email: "ana@example.com", role: "user", displayName: "Ana López" },
-      ];
-
-      const storedUsers = JSON.parse(localStorage.getItem(USERS_KEY) || JSON.stringify(initialUsers));
-      const existingUser = storedUsers.find((u: any) => u.email === googleEmail.toLowerCase().trim());
-
-      if (existingUser) {
-        // Already exists — just log them in
-        localStorage.setItem("go-visa_session", JSON.stringify(existingUser));
-        router.push("/dashboard");
-        return;
+      const user = await authService.loginWithGoogle();
+      if (typeof window !== "undefined") {
+        localStorage.setItem("go-visa_session", JSON.stringify(user));
       }
-
-      // New user — create them
-      const displayName = googleEmail.split("@")[0].replace(/[._-]/g, " ").replace(/\b\w/g, (c: string) => c.toUpperCase());
-      const newUid = `user-google-${Date.now()}`;
-
-      // Read initialScore from URL param if present
-      let initialScore: number | undefined = undefined;
-      const params = new URLSearchParams(window.location.search);
-      const scoreParam = params.get("score");
-      if (scoreParam) initialScore = parseInt(scoreParam);
-
-      const newUser = { uid: newUid, email: googleEmail.toLowerCase().trim(), role: "user", displayName };
-      storedUsers.push(newUser);
-      localStorage.setItem(USERS_KEY, JSON.stringify(storedUsers));
-
-      // Create their application
-      const storedApps = JSON.parse(localStorage.getItem(APPS_KEY) || "[]");
-      storedApps.push({
-        id: `app-${newUid}`,
-        userId: newUid,
-        userEmail: newUser.email,
-        userName: displayName,
-        status: "Nuevo",
-        step: 1,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-        formData: { firstName: displayName.split(" ")[0], email: newUser.email },
-        visaScore: initialScore ? {
-          score: initialScore,
-          level: initialScore >= 88 ? "Fuerte" : initialScore >= 76 ? "Favorable" : "Medio",
-          recommendations: initialScore >= 88
-            ? ["Tu perfil inicial es muy sólido. Mantén tus documentos de soporte listos."]
-            : ["Tu perfil inicial es favorable con soporte. Nuestro equipo te asesorará."],
-          risks: []
-        } : null,
-      });
-      localStorage.setItem(APPS_KEY, JSON.stringify(storedApps));
-
-      localStorage.setItem("go-visa_session", JSON.stringify(newUser));
       router.push("/dashboard");
     } catch (err: any) {
-      setError("Ocurrió un error al registrarse con Google.");
+      console.error(err);
+      if (err.code === "auth/popup-closed-by-user" || err.code === "auth/cancelled-popup-request") {
+        setError("");
+      } else if (err.code === "auth/operation-not-allowed") {
+        setError("Google no está habilitado en Firebase. Contacta al administrador.");
+      } else {
+        setError(err.message || "Error al registrarse con Google.");
+      }
     } finally {
       setLoading(false);
     }
