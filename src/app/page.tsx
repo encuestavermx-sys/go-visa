@@ -500,11 +500,17 @@ export default function LandingPage() {
                 title: "Responde",
                 desc: "Completa nuestro cuestionario en línea.",
                 icon: (
-                  <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <rect x="3" y="3" width="18" height="18" rx="2" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 7.5h6" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 16.5h6" />
+                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="grad-stepper-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#3b82f6" />
+                        <stop offset="100%" stopColor="#1d4ed8" />
+                      </linearGradient>
+                    </defs>
+                    <rect x="3" y="3" width="18" height="18" rx="4" className="stroke-blue-600" strokeWidth="2" fill="#eff6ff" />
+                    <path d="M7 8h10M7 12h6" stroke="url(#grad-stepper-1)" strokeWidth="2" strokeLinecap="round" />
+                    <circle cx="16" cy="14" r="4.5" fill="#3b82f6" />
+                    <path d="M14 14.2l1.2 1.2 2.8-2.8" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 )
               },
@@ -513,8 +519,17 @@ export default function LandingPage() {
                 title: "Revisamos",
                 desc: "Nuestro equipo revisa tu información.",
                 icon: (
-                  <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="grad-stepper-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#2563eb" />
+                        <stop offset="100%" stopColor="#1d4ed8" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M19 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V9l-5-5H7" stroke="url(#grad-stepper-2)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="#eff6ff" />
+                    <path d="M14 3v5h5" stroke="url(#grad-stepper-2)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <circle cx="10" cy="13" r="3" stroke="#3b82f6" strokeWidth="2" fill="white" />
+                    <path d="M12.5 15.5l3 3" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" />
                   </svg>
                 )
               },
@@ -523,8 +538,16 @@ export default function LandingPage() {
                 title: "Agendamos tu cita",
                 desc: "Nos encargamos de todo y conseguimos tu cita.",
                 icon: (
-                  <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="grad-stepper-3" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#3b82f6" />
+                        <stop offset="100%" stopColor="#1d4ed8" />
+                      </linearGradient>
+                    </defs>
+                    <rect x="3" y="5" width="18" height="16" rx="4" stroke="url(#grad-stepper-3)" strokeWidth="2" fill="#eff6ff" />
+                    <path d="M3 10h18M8 3v4M16 3v4" stroke="url(#grad-stepper-3)" strokeWidth="2" strokeLinecap="round" />
+                    <circle cx="12" cy="15" r="2.5" fill="#ef4444" />
                   </svg>
                 )
               },
@@ -533,8 +556,16 @@ export default function LandingPage() {
                 title: "Te notificamos",
                 desc: "Te avisamos por WhatsApp con todos los detalles.",
                 icon: (
-                  <svg className="w-7 h-7 text-emerald-600" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.031 2c-5.514 0-9.99 4.476-9.99 9.99 0 1.763.459 3.486 1.332 5.006L2 22l5.166-1.354c1.47.8 3.119 1.22 4.865 1.22h.004c5.514 0 9.99-4.476 9.99-9.99 0-2.673-1.04-5.186-2.93-7.078C17.202 2.94 14.7 2 12.03 2zm6.059 13.99c-.266.751-1.35 1.365-1.849 1.455-.499.09-1.01.162-3.197-.696-2.793-1.096-4.577-3.95-4.718-4.135-.14-.186-1.144-1.524-1.144-2.91 0-1.385.728-2.066 1.014-2.353.287-.287.624-.359.832-.359.208 0 .416.002.597.01.187.008.437-.033.686.568.257.618.882 2.148.959 2.302.077.155.129.336.026.542-.104.207-.156.336-.312.518-.156.181-.326.402-.467.54-.156.155-.319.324-.136.638.182.314.81 1.332 1.737 2.158.927.826 1.705 1.082 2.02 1.238.314.156.499.129.686-.088.187-.217.81-.942 1.026-1.267.217-.326.434-.272.733-.162.299.11 1.902.894 2.228 1.057.325.162.542.245.625.385.083.14.083.812-.183 1.563z"/>
+                  <svg className="w-9 h-9" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="grad-stepper-4" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#22c55e" />
+                        <stop offset="100%" stopColor="#15803d" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M12.031 2C6.517 2 2.04 6.476 2.04 11.99c0 1.763.459 3.486 1.332 5.006L1 23l5.166-1.354A9.97 9.97 0 0012.03 22c5.514 0 9.99-4.476 9.99-9.99C22.02 6.476 17.545 2 12.03 2z" fill="url(#grad-stepper-4)" />
+                    <path d="M12.03 3.6c4.63 0 8.39 3.76 8.39 8.39 0 4.63-3.76 8.39-8.39 8.39a8.31 8.31 0 01-4.26-1.17l-.31-.18-3.16.83.84-3.08-.2-.32a8.35 8.35 0 01-1.3-4.47c0-4.63 3.76-8.39 8.39-8.39z" fill="white" />
+                    <path d="M9.3 8c-.2-.45-.4-.45-.6-.45H8.3c-.2 0-.5.1-.8.4C7 8.3 6.3 9 6.3 10.3s1 2.6 1.1 2.8c.1.2 2 3 4.8 4.2 2.8 1.2 2.8.8 3.3.8.5 0 1.6-.7 1.8-1.3.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.6-.3-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.1-1.3-.5-2.5-1.6-1-1-1.7-2-1.9-2.3-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4-.1-.5-.1-.2-.8-1.9-1.1-2.6z" fill="url(#grad-stepper-4)" />
                   </svg>
                 )
               }
@@ -548,8 +579,8 @@ export default function LandingPage() {
                   </div>
                   
                   {/* Icon Circle */}
-                  <div className="w-[86px] h-[86px] rounded-full bg-white border border-slate-200/50 flex items-center justify-center shadow-sm group-hover:shadow-md group-hover:border-slate-300 transition-all duration-300 relative">
-                    <div className="absolute inset-1.5 rounded-full bg-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="w-[86px] h-[86px] rounded-full bg-gradient-to-br from-white to-slate-50 border border-slate-200/80 flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.03)] group-hover:shadow-[0_10px_30px_rgba(59,130,246,0.08)] group-hover:border-blue-200/70 transition-all duration-500 relative">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
                     <div className="relative z-10 flex items-center justify-center">
                       {item.icon}
                     </div>
