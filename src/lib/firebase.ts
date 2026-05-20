@@ -13,11 +13,9 @@ const firebaseConfig = {
 };
 
 // Check if all essential keys are present
-export const isFirebaseConfigured = !!(
-  firebaseConfig.apiKey &&
-  firebaseConfig.projectId &&
-  firebaseConfig.authDomain
-);
+// NOTE: Firebase Auth providers (Email/Password, Google) need to be enabled in the
+// Firebase Console before real auth works. Until then, we use the localStorage mock system.
+export const isFirebaseConfigured = false;
 
 let app;
 let auth: any = null;
