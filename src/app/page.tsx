@@ -1096,98 +1096,116 @@ export default function LandingPage() {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonios" className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter py-20 border-t border-slate-200/60">
-        <div className="text-center mb-16 max-w-[800px] mx-auto">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-[#0b1c30] tracking-tight">
-            La seguridad que necesitas, respaldada por casos de éxito
-          </h2>
-          <p className="text-slate-600 text-sm md:text-base">
-            Cientos de solicitantes que usaron nuestra plataforma lograron su visa americana sin costosos asesores tradicionales.
-          </p>
+      <section id="testimonios" className="relative w-full bg-[#081325] bg-grid-dark py-24 text-white overflow-hidden border-t border-slate-800/80">
+        
+        {/* Marca de Agua: Mapa del Mundo SVG */}
+        <div className="absolute inset-0 opacity-[0.035] pointer-events-none select-none -z-0 flex items-center justify-center">
+          <svg className="w-[110%] h-[110%] text-blue-400" viewBox="0 0 1000 500" fill="currentColor">
+            <path d="M150,120 c-20,-10 -40,-5 -50,15 c-10,20 10,40 30,50 c20,10 40,-10 60,-20 c20,-10 30,5 40,20 c10,15 -10,30 -20,40 c-10,10 -30,5 -40,15 c-10,10 0,30 20,40 c20,10 50,-10 70,-20 c20,-10 30,-30 40,-50 c10,-20 -10,-40 -30,-50 c-20,-10 -50,-10 -65,0-10,10 -25,-10 -40,-30 c-15,-20 -20,-10 -15,-10 Z" />
+            <path d="M220,290 c-10,10 -20,30 -25,50 c-5,20 5,40 15,60 c10,20 20,40 30,50 c10,10 15,0 15,-10 c0,-10 -5,-30 -5,-50 c0,-20 15,-40 25,-60 c10,-20 10,-45 5,-50 c-5,-5 -20,0 -35,5 c-15,5 -15,-5 -25,5 Z" />
+            <path d="M450,220 c-10,20 -15,40 -10,60 c5,20 20,40 35,60 c15,20 30,30 45,35 c15,5 25,-10 30,-25 c5,-15 15,-30 20,-50 c5,-20 -5,-40 -15,-55 c-10,-15 -25,-25 -40,-30 c-15,-5 -35,5 -50,5 c-15,0 -10,0 -15,0 Z" />
+            <path d="M420,110 c-15,10 -30,25 -20,45 c10,20 40,15 60,10 c20,-5 40,-15 60,-15 c20,0 40,10 60,20 c20,10 30,30 50,40 c20,10 40,-10 60,-20 c20,-10 30,-30 40,-50 c10,-20 -15,-40 -35,-50 c-20,-10 -50,-5 -70,5 c-20,10 -30,0 -40,-10 c-10,-10 -20,-20 -40,-25 c-20,-5 -45,15 -60,25 c-15,10 -25,-10 -40,-10 c-15,0 -15,20 -25,35 Z" />
+            <path d="M720,360 c-10,5 -20,15 -20,25 c0,10 10,20 25,25 c15,5 30,-5 40,-15 c10,-10 15,-25 10,-35 c-5,-10 -25,-10 -35,-5 c-10,5 -10,0 -20,5 Z" />
+            <path d="M320,60 c-10,-5 -20,5 -25,15 c-5,10 5,20 15,25 c10,5 20,-5 25,-15 c5,-10 -5,-20 -15,-25 Z" />
+          </svg>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Card 1 */}
-          <div className="bg-white border border-slate-200/60 rounded-3xl p-8 flex flex-col justify-between shadow-[0_8px_30px_rgb(0,0,0,0.015)] hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgb(0,0,0,0.04)] transition-all duration-300">
-            <div className="space-y-4">
-              <div className="flex gap-1 text-amber-500 text-lg">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-              </div>
-              <p className="text-slate-600 text-sm md:text-base italic leading-relaxed">
-                &ldquo;Estaba aterrorizada por la entrevista. Usar el simulador de IA de Go-Visa me ayudó a practicar mis respuestas de ingresos y lazos fuertes con México. Llegué segura y me la otorgaron sin problemas.&rdquo;
-              </p>
-            </div>
-            <div className="flex items-center justify-between mt-8 pt-6 border-t border-slate-100 gap-2">
-              <div className="flex items-center gap-3">
-                <img
-                  src="/sofia.png"
-                  alt="Sofía Martínez"
-                  className="w-10 h-10 rounded-full object-cover border border-slate-100 shadow-sm"
-                />
-                <div>
-                  <h4 className="font-bold text-[#0b1c30] text-sm md:text-base leading-tight">Sofía Martínez</h4>
-                  <p className="text-[11px] text-slate-400">Jalisco (Cita en Guadalajara)</p>
-                </div>
-              </div>
-              <span className="bg-[#e6f7ed] text-[#0d7a3c] text-[10px] md:text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
-                Aprobada
-              </span>
-            </div>
+        {/* Glow decoration inside dark section */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+          <div className="text-center mb-16 max-w-[800px] mx-auto">
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-white tracking-tight">
+              La seguridad que necesitas, respaldada por casos de éxito
+            </h2>
+            <p className="text-slate-400 text-sm md:text-base">
+              Cientos de solicitantes que usaron nuestra plataforma lograron su visa americana sin costosos asesores tradicionales.
+            </p>
           </div>
 
-          {/* Card 2 */}
-          <div className="bg-white border border-slate-200/60 rounded-3xl p-8 flex flex-col justify-between shadow-[0_8px_30px_rgb(0,0,0,0.015)] hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgb(0,0,0,0.04)] transition-all duration-300">
-            <div className="space-y-4">
-              <div className="flex gap-1 text-amber-500 text-lg">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-              </div>
-              <p className="text-slate-600 text-sm md:text-base italic leading-relaxed">
-                &ldquo;La DS-160 en el sitio oficial es una pesadilla de caídas y mala traducción. El cuestionario simplificado de Go-Visa me guió paso a paso y me guardaron todo ordenado. Excelente servicio.&rdquo;
-              </p>
-            </div>
-            <div className="flex items-center justify-between mt-8 pt-6 border-t border-slate-100 gap-2">
-              <div className="flex items-center gap-3">
-                <img
-                  src="/alejandro.png"
-                  alt="Alejandro Ruiz"
-                  className="w-10 h-10 rounded-full object-cover border border-slate-100 shadow-sm"
-                />
-                <div>
-                  <h4 className="font-bold text-[#0b1c30] text-sm md:text-base leading-tight">Alejandro Ruiz</h4>
-                  <p className="text-[11px] text-slate-400">Nuevo León (Cita Monterrey)</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 1 */}
+            <div className="bg-white/[0.02] border border-white/[0.07] rounded-3xl p-8 flex flex-col justify-between backdrop-blur-md shadow-2xl hover:border-blue-500/30 hover:bg-white/[0.04] hover:-translate-y-1.5 hover:shadow-blue-500/5 transition-all duration-300">
+              <div className="space-y-4">
+                <div className="flex gap-1 text-amber-500 text-lg">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                 </div>
+                <p className="text-slate-300 text-sm md:text-base italic leading-relaxed">
+                  &ldquo;Estaba aterrorizada por la entrevista. Usar el simulador de IA de Go-Visa me ayudó a practicar mis respuestas de ingresos y lazos fuertes con México. Llegué segura y me la otorgaron sin problemas.&rdquo;
+                </p>
               </div>
-              <span className="bg-[#e6f7ed] text-[#0d7a3c] text-[10px] md:text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
-                Aprobada
-              </span>
+              <div className="flex items-center justify-between mt-8 pt-6 border-t border-white/[0.07] gap-2">
+                <div className="flex items-center gap-3">
+                  <img
+                    src="/sofia.png"
+                    alt="Sofía Martínez"
+                    className="w-10 h-10 rounded-full object-cover border border-white/[0.1] shadow-sm"
+                  />
+                  <div>
+                    <h4 className="font-bold text-white text-sm md:text-base leading-tight">Sofía Martínez</h4>
+                    <p className="text-[11px] text-slate-500">Jalisco (Cita en Guadalajara)</p>
+                  </div>
+                </div>
+                <span className="bg-emerald-950/40 text-emerald-400 border border-emerald-900/30 text-[10px] md:text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
+                  Aprobada
+                </span>
+              </div>
             </div>
-          </div>
 
-          {/* Card 3 */}
-          <div className="bg-white border border-slate-200/60 rounded-3xl p-8 flex flex-col justify-between shadow-[0_8px_30px_rgb(0,0,0,0.015)] hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgb(0,0,0,0.04)] transition-all duration-300">
-            <div className="space-y-4">
-              <div className="flex gap-1 text-amber-500 text-lg">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-              </div>
-              <p className="text-slate-600 text-sm md:text-base italic leading-relaxed">
-                &ldquo;Mi visa venció hace un año, no sabía si requería entrevista presencial de nuevo. El test de elegibilidad me confirmó que era elegible para exención. Ahorré muchísimo estrés.&rdquo;
-              </p>
-            </div>
-            <div className="flex items-center justify-between mt-8 pt-6 border-t border-slate-100 gap-2">
-              <div className="flex items-center gap-3">
-                <img
-                  src="/gabriela.png"
-                  alt="Gabriela Torres"
-                  className="w-10 h-10 rounded-full object-cover border border-slate-100 shadow-sm"
-                />
-                <div>
-                  <h4 className="font-bold text-[#0b1c30] text-sm md:text-base leading-tight">Gabriela Torres</h4>
-                  <p className="text-[11px] text-slate-400">CDMX (Cita en CDMX)</p>
+            {/* Card 2 */}
+            <div className="bg-white/[0.02] border border-white/[0.07] rounded-3xl p-8 flex flex-col justify-between backdrop-blur-md shadow-2xl hover:border-blue-500/30 hover:bg-white/[0.04] hover:-translate-y-1.5 hover:shadow-blue-500/5 transition-all duration-300">
+              <div className="space-y-4">
+                <div className="flex gap-1 text-amber-500 text-lg">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                 </div>
+                <p className="text-slate-300 text-sm md:text-base italic leading-relaxed">
+                  &ldquo;La DS-160 en el sitio oficial es una pesadilla de caídas y mala traducción. El cuestionario simplificado de Go-Visa me guió paso a paso y me guardaron todo ordenado. Excelente servicio.&rdquo;
+                </p>
               </div>
-              <span className="bg-[#e6f7ed] text-[#0d7a3c] text-[10px] md:text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
-                Renovada
-              </span>
+              <div className="flex items-center justify-between mt-8 pt-6 border-t border-white/[0.07] gap-2">
+                <div className="flex items-center gap-3">
+                  <img
+                    src="/alejandro.png"
+                    alt="Alejandro Ruiz"
+                    className="w-10 h-10 rounded-full object-cover border border-white/[0.1] shadow-sm"
+                  />
+                  <div>
+                    <h4 className="font-bold text-white text-sm md:text-base leading-tight">Alejandro Ruiz</h4>
+                    <p className="text-[11px] text-slate-500">Nuevo León (Cita Monterrey)</p>
+                  </div>
+                </div>
+                <span className="bg-emerald-950/40 text-emerald-400 border border-emerald-900/30 text-[10px] md:text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
+                  Aprobada
+                </span>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-white/[0.02] border border-white/[0.07] rounded-3xl p-8 flex flex-col justify-between backdrop-blur-md shadow-2xl hover:border-blue-500/30 hover:bg-white/[0.04] hover:-translate-y-1.5 hover:shadow-blue-500/5 transition-all duration-300">
+              <div className="space-y-4">
+                <div className="flex gap-1 text-amber-500 text-lg">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <p className="text-slate-300 text-sm md:text-base italic leading-relaxed">
+                  &ldquo;Mi visa venció hace un año, no sabía si requería entrevista presencial de nuevo. El test de elegibilidad me confirmó que era elegible para exención. Ahorré muchísimo estrés.&rdquo;
+                </p>
+              </div>
+              <div className="flex items-center justify-between mt-8 pt-6 border-t border-white/[0.07] gap-2">
+                <div className="flex items-center gap-3">
+                  <img
+                    src="/gabriela.png"
+                    alt="Gabriela Torres"
+                    className="w-10 h-10 rounded-full object-cover border border-white/[0.1] shadow-sm"
+                  />
+                  <div>
+                    <h4 className="font-bold text-white text-sm md:text-base leading-tight">Gabriela Torres</h4>
+                    <p className="text-[11px] text-slate-500">CDMX (Cita en CDMX)</p>
+                  </div>
+                </div>
+                <span className="bg-blue-950/40 text-blue-400 border border-blue-900/30 text-[10px] md:text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
+                  Renovada
+                </span>
+              </div>
             </div>
           </div>
         </div>
