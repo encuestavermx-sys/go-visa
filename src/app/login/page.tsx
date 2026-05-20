@@ -44,22 +44,52 @@ export default function LoginPage() {
   };
 
   const handleGoogleLogin = async () => {
+    const googleEmail = window.prompt("Ingresa tu correo Gmail para continuar:");
+    if (!googleEmail || !googleEmail.includes("@")) {
+      setError("Por favor ingresa un correo Gmail válido.");
+      return;
+    }
+
     setLoading(true);
     setError("");
     try {
-      // Simulation of Google Login
-      const mockGoogleUser = {
-        uid: "user-google-1",
-        email: "carlos.mendez.google@gmail.com",
-        role: "user",
-        displayName: "Carlos Méndez (Google)",
-      };
-      
-      // Seed default user applications if not exist
-      if (typeof window !== "undefined") {
-        localStorage.setItem("go-visa_session", JSON.stringify(mockGoogleUser));
+      const USERS_KEY = "go-visa_users";
+      const APPS_KEY = "go-visa_applications";
+      const initialUsers = [
+        { uid: "admin-1", email: "admin@govisa.mx", role: "admin", displayName: "Admin Go-Visa" },
+        { uid: "user-1", email: "carlos@example.com", role: "user", displayName: "Carlos Méndez" },
+        { uid: "user-2", email: "ana@example.com", role: "user", displayName: "Ana López" },
+      ];
+
+      const storedUsers = JSON.parse(localStorage.getItem(USERS_KEY) || JSON.stringify(initialUsers));
+      let user = storedUsers.find((u: any) => u.email === googleEmail.toLowerCase().trim());
+
+      if (!user) {
+        // New user — auto-register them
+        const displayName = googleEmail.split("@")[0].replace(/[._-]/g, " ").replace(/\b\w/g, (c: string) => c.toUpperCase());
+        const newUid = `user-google-${Date.now()}`;
+        user = { uid: newUid, email: googleEmail.toLowerCase().trim(), role: "user", displayName };
+        storedUsers.push(user);
+        localStorage.setItem(USERS_KEY, JSON.stringify(storedUsers));
+
+        // Create their application
+        const storedApps = JSON.parse(localStorage.getItem(APPS_KEY) || "[]");
+        storedApps.push({
+          id: `app-${newUid}`,
+          userId: newUid,
+          userEmail: user.email,
+          userName: displayName,
+          status: "Nuevo",
+          step: 1,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          formData: { firstName: displayName.split(" ")[0], email: user.email },
+          visaScore: null,
+        });
+        localStorage.setItem(APPS_KEY, JSON.stringify(storedApps));
       }
-      
+
+      localStorage.setItem("go-visa_session", JSON.stringify(user));
       router.push("/dashboard");
     } catch (err: any) {
       setError("Ocurrió un error al iniciar sesión con Google.");
