@@ -523,93 +523,124 @@ export default function LandingPage() {
                 </div>
                 
                 <h3 className="text-base font-bold text-[#0b1c30] mb-2">{item.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed max-w-[220px]">{item.desc}</p>
+                <p className="text-slate-500 text-sm leading-relaxed max-w-[220px]">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
+      </section>
 
-        {/* Parte 2: Propuesta de valor y Beneficios ("¿Por qué Go-Visa?") */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-20 border-t border-slate-200/40">
-          {/* Columna Izquierda */}
-          <div className="lg:col-span-5 flex flex-col justify-center space-y-6">
-            <span className="bg-blue-50 text-blue-600 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider border border-blue-100 w-fit">
-              ¿Por qué Go-Visa?
-            </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#0b1c30] leading-tight tracking-tight">
-              Hacemos el proceso fácil, rápido y seguro.
-            </h2>
-            <p className="text-slate-600 text-base leading-relaxed">
-              Combinamos tecnología y asesoría experta para brindarte la mejor experiencia.
-            </p>
-            <a
-              href="#beneficios"
-              className="bg-[#0b1c30] text-white hover:bg-opacity-90 px-6 py-3 rounded-full text-sm font-semibold w-fit transition-all duration-200 shadow-sm inline-flex items-center gap-2 group/btn"
-            >
-              Conoce nuestros servicios
-              <svg className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
-          </div>
+      {/* Seccion "¿Por qué Go-Visa?" (Tema Azul Premium con Marca de Agua de Mapa Mundial) */}
+      <section id="por-que-go-visa" className="relative w-full bg-[#081325] py-24 text-white overflow-hidden border-t border-slate-800/80">
+        
+        {/* Marca de Agua: Mapa del Mundo SVG */}
+        <div className="absolute inset-0 opacity-[0.035] pointer-events-none select-none -z-0 flex items-center justify-center">
+          <svg className="w-[110%] h-[110%] text-blue-400" viewBox="0 0 1000 500" fill="currentColor">
+            {/* North America */}
+            <path d="M150,120 c-20,-10 -40,-5 -50,15 c-10,20 10,40 30,50 c20,10 40,-10 60,-20 c20,-10 30,5 40,20 c10,15 -10,30 -20,40 c-10,10 -30,5 -40,15 c-10,10 0,30 20,40 c20,10 50,-10 70,-20 c20,-10 30,-30 40,-50 c10,-20 -10,-40 -30,-50 c-20,-10 -50,-10 -65,0-10,10 -25,-10 -40,-30 c-15,-20 -20,-10 -15,-10 Z" />
+            {/* South America */}
+            <path d="M220,290 c-10,10 -20,30 -25,50 c-5,20 5,40 15,60 c10,20 20,40 30,50 c10,10 15,0 15,-10 c0,-10 -5,-30 -5,-50 c0,-20 15,-40 25,-60 c10,-20 10,-45 5,-50 c-5,-5 -20,0 -35,5 c-15,5 -15,-5 -25,5 Z" />
+            {/* Africa */}
+            <path d="M450,220 c-10,20 -15,40 -10,60 c5,20 20,40 35,60 c15,20 30,30 45,35 c15,5 25,-10 30,-25 c5,-15 15,-30 20,-50 c5,-20 -5,-40 -15,-55 c-10,-15 -25,-25 -40,-30 c-15,-5 -35,5 -50,5 c-15,0 -10,0 -15,0 Z" />
+            {/* Europe & Asia */}
+            <path d="M420,110 c-15,10 -30,25 -20,45 c10,20 40,15 60,10 c20,-5 40,-15 60,-15 c20,0 40,10 60,20 c20,10 30,30 50,40 c20,10 40,-10 60,-20 c20,-10 30,-30 40,-50 c10,-20 -15,-40 -35,-50 c-20,-10 -50,-5 -70,5 c-20,10 -30,0 -40,-10 c-10,-10 -20,-20 -40,-25 c-20,-5 -45,15 -60,25 c-15,10 -25,-10 -40,-10 c-15,0 -15,20 -25,35 Z" />
+            {/* Australia */}
+            <path d="M720,360 c-10,5 -20,15 -20,25 c0,10 10,20 25,25 c15,5 30,-5 40,-15 c10,-10 15,-25 10,-35 c-5,-10 -25,-10 -35,-5 c-10,5 -10,0 -20,5 Z" />
+            {/* Greenland */}
+            <path d="M320,60 c-10,-5 -20,5 -25,15 c-5,10 5,20 15,25 c10,5 20,-5 25,-15 c5,-10 -5,-20 -15,-25 Z" />
+          </svg>
+        </div>
 
-          {/* Columna Derecha */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {[
-              {
-                title: "Rápido",
-                desc: "Optimizamos cada paso para ahorrar tu tiempo.",
-                icon: (
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                )
-              },
-              {
-                title: "Seguro",
-                desc: "Protegemos tu información y tu proceso.",
-                icon: (
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                )
-              },
-              {
-                title: "Acompañamiento",
-                desc: "Te asesoramos en todo momento por expertos.",
-                icon: (
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 12c0-4.97 4.03-9 9-9s9 4.03 9 9m-18 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H3a2 2 0 00-2 2v2a2 2 0 002 2zm14 0h2a2 2 0 002-2v-2a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 16v1a3 3 0 01-3 3h-2" />
-                  </svg>
-                )
-              },
-              {
-                title: "Transparente",
-                desc: "Sin sorpresas, sabes siempre en qué etapa vas.",
-                icon: (
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                    <rect x="3" y="3" width="18" height="18" rx="2" strokeLinecap="round" strokeLinejoin="round" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M7 16V13m4 3V10m4 6V7m4 9v-5" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12l4-4 4 3 6-5" />
-                  </svg>
-                )
-              }
-            ].map((item, index) => (
-              <div key={index} className="bg-white border border-slate-200/50 hover:border-slate-300 rounded-2xl p-6 hover:shadow-md transition-all duration-300 flex flex-col justify-between shadow-sm relative overflow-hidden group">
-                <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-blue-50/20 rounded-full blur-xl group-hover:bg-blue-50/40 transition-colors duration-300"></div>
-                
-                <div className="relative z-10 flex flex-col h-full justify-between">
-                  <div className="bg-blue-50/60 p-3 rounded-xl w-fit mb-5">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-base font-bold mb-2 text-[#0b1c30]">{item.title}</h3>
-                    <p className="text-slate-500 text-xs leading-relaxed">{item.desc}</p>
+        {/* Dynamic Background Glows */}
+        <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none -z-0"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none -z-0"></div>
+
+        <div className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            {/* Columna Izquierda */}
+            <div className="lg:col-span-5 flex flex-col justify-center space-y-6">
+              <span className="bg-blue-500/10 text-blue-300 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider border border-blue-500/20 w-fit">
+                ¿Por qué Go-Visa?
+              </span>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight tracking-tight">
+                Hacemos el proceso fácil, rápido y seguro.
+              </h2>
+              <p className="text-slate-400 text-base leading-relaxed">
+                Combinamos tecnología y asesoría experta para brindarte la mejor experiencia.
+              </p>
+              <a
+                href="#beneficios"
+                className="bg-white text-[#0b1c30] hover:bg-slate-100 px-6 py-3 rounded-full text-sm font-semibold w-fit transition-all duration-200 shadow-md inline-flex items-center gap-2 group/btn"
+              >
+                Conoce nuestros servicios
+                <svg className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+
+            {/* Columna Derecha */}
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {[
+                {
+                  title: "Rápido",
+                  desc: "Optimizamos cada paso para ahorrar tu tiempo.",
+                  icon: (
+                    <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  )
+                },
+                {
+                  title: "Seguro",
+                  desc: "Protegemos tu información y tu proceso.",
+                  icon: (
+                    <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  )
+                },
+                {
+                  title: "Acompañamiento",
+                  desc: "Te asesoramos en todo momento por expertos.",
+                  icon: (
+                    <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 12c0-4.97 4.03-9 9-9s9 4.03 9 9m-18 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H3a2 2 0 00-2 2v2a2 2 0 002 2zm14 0h2a2 2 0 002-2v-2a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 16v1a3 3 0 01-3 3h-2" />
+                    </svg>
+                  )
+                },
+                {
+                  title: "Transparente",
+                  desc: "Sin sorpresas, sabes siempre en qué etapa vas.",
+                  icon: (
+                    <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                      <rect x="3" y="3" width="18" height="18" rx="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M7 16V13m4 3V10m4 6V7m4 9v-5" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 12l4-4 4 3 6-5" />
+                    </svg>
+                  )
+                }
+              ].map((item, index) => (
+                <div key={index} className="bg-white/[0.02] border border-white/[0.07] hover:border-blue-500/30 hover:bg-white/[0.05] rounded-2xl p-6 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+                  <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-blue-500/5 rounded-full blur-xl group-hover:bg-blue-500/10 transition-colors duration-300"></div>
+                  
+                  <div className="relative z-10 flex flex-col h-full justify-between">
+                    <div className="bg-blue-500/10 p-3 rounded-xl w-fit mb-5">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-base font-bold mb-2 text-white">{item.title}</h3>
+                      <p className="text-slate-400 text-xs leading-relaxed">{item.desc}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
           </div>
         </div>
       </section>
